@@ -16,27 +16,27 @@ a {
     text-decoration: underline; }
 
 
-    h1 {
-      font-size: 34px;
-    }
-    h1.title {
-      font-size: 38px;
-    }
-    h2 {
-      font-size: 30px;
-    }
-    h3 {
-      font-size: 1.17em;
-    }
-    h4 {
-      font-size: 1.1em;
-    }
-    h5 {
-      font-size: 16px;
-    }
-    h6 {
-      font-size: 12px;
-    }
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 1.17em;
+}
+h4 {
+  font-size: 1.1em;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
 
  /* main content section css */
 .container {
@@ -141,75 +141,39 @@ a {
   background-color: #eff0f1;
   border: 0; }
 
-@media screen and (min-width: 64em) {
-  .main-content {
-    max-width: 64rem;
-    padding: 2rem 6rem;
-    margin: 0 auto;
-    font-size: 1.1rem; } }
-
-@media screen and (min-width: 42em) and (max-width: 64em) {
-  .main-content {
-    padding: 2rem 4rem;
-    font-size: 1.1rem; } }
-
-@media screen and (max-width: 42em) {
-  .main-content {
-    padding: 2rem 1rem;
-    font-size: 1rem; } }
-
-
  /* navbar  */
 
 .navbar-custom {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #343a40;
     margin: 0 auto;
 
   }
-  .navbar-custom ul {
-    list-style-type: none !important;
-  }
-  
-  .navbar-custom li {
-    float: left !important;
-  }
-  
-  .navbar-custom li a {
-    display: block !important;
-    color: white !important;
-    text-align: center !important;
-    padding: 14px 16px !important;
-    text-decoration: none !important;
-  }
-  
-  .navbar-custom li a:hover {
-    background-color: #111 !important;
-  }
+.navbar {
+  width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
 
+}
 
-  @media screen and (min-width: 64em) {
-    .navbar-inner {
-      max-width: 64em;
-      padding: 0rem 5.20rem;
-      margin: 0 auto;
-    }}
-  @media screen and (min-width: 42em) and (max-width: 64em) {
-    .navbar-inner {
-      padding: 0rem 3.2rem;
-      margin: 0 auto;
+@media (min-width: 768px){
+  .navbar {
+    max-width: 720px;
+  }}
 
-    }}
-  
-  @media screen and (max-width: 42em) {
-    .navbar-inner {
-      padding: 0rem .2rem;
-      margin: 0 auto;
+@media (min-width: 992px){
+  .navbar {
+    max-width: 960px;
+  }}
 
-    }}
-
+@media (min-width: 1200px){
+  .navbar {
+    max-width: 1140px;
+  }}
 
 /* image highlights  */
   
@@ -275,21 +239,6 @@ CSS for boxes
     text-decoration: none;
   }
 
-  /* @media screen and (min-width: 64em) {
-    .box {
-      padding: 0.75rem 1rem; } }
-  
-  @media screen and (min-width: 42em) and (max-width: 64em) {
-    .box {
-      padding: 0.6rem 0.9rem;
-      font-size: 0.9rem; } }
-  
-  @media screen and (max-width: 42em) {
-    .box {
-      display: block;
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 0.9rem; } */
 
 /*
 CSS for buttons
