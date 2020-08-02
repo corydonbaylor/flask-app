@@ -4,16 +4,20 @@
 {% if title %}{{ title }} - Microblog{% else %}Welcome to Microblog{% endif %}
 {% endblock %}
 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='custom.css')}}">
+<link rel="stylesheet"
+    href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
+{% endblock %}
+
 {% block navbar %}
 {% include 'navbar.html' %}
 {% endblock %}
+<p>ksdjgkljsdklgjskldjgklsjdlkgjlk</p>
 
-{% block content %}
-{% for posts in posts %}
-<div>
-    <p>{{ posts.authors.username }} says: <b>{{ posts.body }}</b></p>
-</div>
-{% endfor %}
-
-</html>
-{% endblock %}
+<main role="main" class="container">
+    {% block content %}
+    {% endblock %}
+</main>
