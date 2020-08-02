@@ -39,7 +39,9 @@ a {
     }
 
  /* main content section css */
-
+.container {
+  padding-top: 2rem;
+}
 .container :first-child {
   margin-top: 0; }
 .container img {
