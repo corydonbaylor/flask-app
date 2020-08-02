@@ -11,3 +11,8 @@ def index():
 @app.route('/analytics')
 def analytics():
     return render_template('analytics.html')
+
+
+@app.route('/viz')
+def viz():
+    return render_template('viz.html')

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h3> Visualizations </h3>
+    <p>One of the most accessible (and fun) parts of data science is certainly the data visualization.
+        As an avid fan of R, I enjoy seeing how far I can push ggplot2.
+    </p>
+    <p>
+        Click the below cards for tutorials on different visualizations!
+    </p>
+    <br>
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-header">Dotmap</div>
+            <div class="image-link">
+                <a href='covid_dotmap.html'>
+                    <img class="img-fit" src="images/covid-still.PNG"></a>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Learn to make a dotmap with the maps package and gganimate</p>
+            </div>
+            <div class="card-footer bg-transparent cf-custom">
+                <a href="https://github.com/corydonbaylor/covid_dotmap">Github</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Sentiment Calendar</div>
+            <div class="image-link">
+                <a href='twitter_viz.html'>
+                    <img class="img-fit" src="images/calendar.png"></a>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Create a sentiment calendar from twitter data using rtweet and ggplot2</p>
+            </div>
+            <div class="card-footer bg-transparent cf-custom">
+                <a href="https://github.com/corydonbaylor/twitter-viz">Github</a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Barchart Race</div>
+            <div class="image-link">
+                <a href='barchart_race.html'>
+                    <img class="img-fit" src="images/barchart.PNG"></a>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Learn to make a barchart race with ggplot2 and gganimate</p>
+            </div>
+            <div class="card-footer bg-transparent cf-custom">
+                <a href="https://github.com/corydonbaylor/barchart-race">Github</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
