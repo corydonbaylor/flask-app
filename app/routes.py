@@ -24,6 +24,11 @@ def webdev():
     return render_template('webdev.html', title='Web Dev')
 
 
+@app.route('/webdev/local_raspberry')
+def local1():
+    return render_template('pages/webdev/using_raspberry.html', title='Hosting: Raspberry Pi')
+
+
 @app.route('/webdev/local_host_2')
 def local2():
     return render_template('pages/webdev/local_hosting_2.html', title='Local Hosting II')
