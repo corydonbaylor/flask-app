@@ -31,7 +31,12 @@ def local1():
 
 @app.route('/webdev/local_host_2')
 def local2():
-    return render_template('pages/webdev/local_hosting_2.html', title='Local Hosting II')
+    return render_template('pages/webdev/local_hosting_2.html', title='Flask and Apache')
+
+
+@app.route('/webdev/port_forwarding')
+def local3():
+    return render_template('pages/webdev/port_forwarding.html', title='Port Forwarding')
 
 # visualization routes
 

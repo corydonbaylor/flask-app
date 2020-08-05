@@ -147,8 +147,13 @@ h6 {
   padding: 0rem !important;
 }
 
+/* Images */
+.inline-pics {
+  width: 50%;
+  padding: 1rem;
+}
 
- /* navbar  */
+/* navbar  */
 
 .navbar-custom {
     margin: 0;
