@@ -1,16 +1,22 @@
 from flask import render_template
 from app import app
 
+# home route
+
 
 @app.route('/')
 @app.route('/index')
 def index():
     return render_template('index.html', title='Home')
 
+# analytics routes
+
 
 @app.route('/analytics')
 def analytics():
     return render_template('analytics.html', title='Analytics')
+
+# web devlopment routes
 
 
 @app.route('/webdev')
@@ -21,6 +27,8 @@ def webdev():
 @app.route('/webdev/local_host_2')
 def local2():
     return render_template('pages/webdev/local_hosting_2.html', title='Local Hosting II')
+
+# visualization routes
 
 
 @app.route('/viz')
