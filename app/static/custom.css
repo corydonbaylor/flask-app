@@ -141,6 +141,13 @@ h6 {
   background-color: #eff0f1;
   border: 0; }
 
+
+/* TOC CSS */
+.no-pad {
+  padding: 0rem !important;
+}
+
+
  /* navbar  */
 
 .navbar-custom {
