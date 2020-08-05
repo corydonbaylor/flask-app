@@ -5,22 +5,22 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title='Home')
 
 
 @app.route('/analytics')
 def analytics():
-    return render_template('analytics.html')
+    return render_template('analytics.html', title='Analytics')
 
 
 @app.route('/webdev')
 def webdev():
-    return render_template('webdev.html')
+    return render_template('webdev.html', title='Web Dev')
 
 
 @app.route('/webdev/local_host_2')
 def local2():
-    return render_template('pages/webdev/local_hosting_2.html')
+    return render_template('pages/webdev/local_hosting_2.html', title='Local Hosting II')
 
 
 @app.route('/viz')
@@ -44,19 +44,19 @@ def viz():
         }
 
     ]
-    return render_template('viz.html', deck=deck)
+    return render_template('viz.html', deck=deck, title='Visualizations')
 
 
 @app.route('/viz/covid_dotmap')
 def covid_dotmap():
-    return render_template('/pages/viz/covid_dotmap.html')
+    return render_template('/pages/viz/covid_dotmap.html', title='Dot Map')
 
 
 @app.route('/viz/calendar')
 def calendar():
-    return render_template('/pages/viz/twitter_viz.html')
+    return render_template('/pages/viz/twitter_viz.html', title='Sentiment Calendar')
 
 
 @app.route('/viz/barchart_race')
 def barchart():
-    return render_template('/pages/viz/barchart_race.html')
+    return render_template('/pages/viz/barchart_race.html', title='Barchart Race')

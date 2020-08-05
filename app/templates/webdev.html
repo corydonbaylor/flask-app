@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+
+
+{% if title %}
+<title>{{ title }}</title>
+{% else %}
+<title>CorydonBaylor.io</title>
+{% endif %}
+
 {% block content %}
 
 <h3> Web Development </h3>
