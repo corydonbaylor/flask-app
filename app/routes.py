@@ -13,6 +13,16 @@ def analytics():
     return render_template('analytics.html')
 
 
+@app.route('/webdev')
+def webdev():
+    return render_template('webdev.html')
+
+
+@app.route('/webdev/local_host_2')
+def local2():
+    return render_template('pages/webdev/local_hosting_2.html')
+
+
 @app.route('/viz')
 def viz():
     deck = [
