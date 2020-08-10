@@ -18,7 +18,24 @@
 </div>
 <div class="sub-section">
     <h3>How to Build a Website</h3>
-    {% include 'partials/webdev_toc.html' %}
+    <div class="row">
+        <div class="col-4">
+            {% include 'partials/webdev_toc.html' %}
+        </div>
+        <div class="col-6">
+            <p>
+                <strong>Ever wanted to create a website, but didn't know where to start?</strong>
+            </p>
+            <p>
+                Well start here. In this series of tutorials, we will cover how to first build a
+                static website using just HTML and CSS. Then we will add in bootstrap,
+                which is a CSS framework. Then we will cover how to add in a backend using flask.
+                This will make our website signficantly easier to maintain and update.
+                Finally, we will go over how to host your website on a raspberry pi, so
+                that other people can access your website!
+            </p>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

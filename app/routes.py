@@ -16,6 +16,7 @@ def index():
 def analytics():
     return render_template('analytics.html', title='Analytics')
 
+
 # web devlopment routes
 
 
