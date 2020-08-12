@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>HTML and CSS: Building a Static Website</h2>
+<p>Websites have come a very long way since the 90s when pretty much everything was pure HTML with maybe a little CSS
+  thrown in. Though that&#39;s not to say that a pure HTML website cannot be totally <a
+    href='http://nineties.website'>rad (nineties lingo on purpose)</a>. This tutorial will cover how to make a very
+  basic website.</p>
+<h3>What is HTML and CSS?</h3>
+<p> The best explanation I have heard for how a website is built is to compare it to a person. HTML is the bones. It
+  provides the underlying structure of the website. The CSS is the skin. It provides the appearance of the website--and
+  without it the website would not look very good. The final component is the javascript, which is the muscles of the
+  site. It is what allows the website to move and provides interactivity. We won&#39;t cover javascript in this series
+  of tutorials. No muscles means no movement, which is why this is a static website. </p>
+<h3>Let&#39;s lay out the HTML</h3>
+<p>Ok, now we know what HTML is conceptually, we need to lay the foundations of our website (I will abandon the bones
+  metaphor at this point).</p>
+<p>First, let&#39;s create an HTML file called <em>index.html</em> in a new project folder. This is going to be the
+  homepage of our new site. It is convention to name a homepage <em>index.html</em>, but sometimes it is also required.
+  For instance, an Apache webserver will serve <em>index.html</em> as the homepage by default. </p>
+<p>So to create a new page, we need to use a text editor. You can use notepad to start, but I would recommend <a
+    href='https://code.visualstudio.com'>VS Code</a> as it has it more modern features that can make development easier.
+</p>
+<p>In your new <em>index.html</em> file paste the following:</p>
+<pre><code class='language-html' lang='html'>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body style=&quot;color:blue&quot;&gt;
+    &lt;p&gt;Create Your Static Website&lt;/p&gt;
+    &lt;p&gt;Here is the content of your site.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>If you open up your index.html file in chrome, you will see something like the below:</p>
+<div style="color:blue;">
+  <p>Create Your Static Website</p>
+  <p>Here is the content of your site.
+</div>
+</p>
+<p>And if you were to right click and press inspect in chrome, you will see the html you just wrote!</p>
+<h3>What are HTML Tags?</h3>
+<p>Let&#39;s break down what we have here a little bit. </p>
+<p>Try and think of a html tags as sections of a webpage, with different tags creating different types of sections. Each
+  section has an opening and closing tag.</p>
+<p>So surrounding everything is an <code>&lt;html&gt;</code> tag meaning that everything is organized into an
+  <em>html</em> section. Within the <code>&lt;html&gt;</code> tags, you will see <code>&lt;head&gt;</code> and
+  <code>&lt;body&gt;</code> tags. These divide your html code into the head of the document and the body of the
+  document. </p>
+<p>The <strong>head</strong> contains the parts of the webpage that are not displayed. Instead it contains things like
+  the <code>&lt;title&gt;</code> and links to CSS. You can also link to javascript or add in other meta data and
+  keywords. The <strong>body</strong> contains the part of the webpage that you can see. Here are some common html tags
+  that you will find within the body:</p>
+<ul>
+  <li><code>&lt;h1&gt; &lt;h2&gt; &lt;h3&gt;</code> - These are header tags, they create different headers size based on
+    the number that follows the <em>h</em>. <em>h1</em> is the largest, <em>h2</em> is the second largest and so on.
+  </li>
+  <li><code>&lt;div&gt;</code> - The div tag is a bit more conceptual. It separates the page into divisions. This tag
+    can be especially useful for CSS inheritance, which we will cover later. </li>
+  <li><code>&lt;p&gt;</code> - This is the paragraph tag. Within these tags, you can write text.</li>
+  <li><code>&lt;a href=&quot;yourlink.html&quot;&gt;</code> - the a tag creates hyperlinks to other webpages. </li>
+
+</ul>
+<h3>Applying CSS Styles</h3>
+<p>Let&#39;s look back at the html we wrote earlier. </p>
+<pre><code class='language-html' lang='html'>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body style=&quot;color:blue&quot;&gt;
+    &lt;p&gt;Create Your Static Website&lt;/p&gt;
+    &lt;p&gt;Here is the content of your site.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Within the opening body tag, we apply the <code>color</code> attribute, which as you may guess,
+  applies color to text. In fact, all tags between
+  <code>&lt;body style=color:&quot;blue&quot;&gt;</code> and <code>&lt;/body&gt;</code> will
+  have a text color of &quot;blue&quot;, including those two
+  <code>&lt;p&gt;</code> tags. </p>
+<p>This is called <strong>inheritance</strong>. When a html tag is enclosed by another tag, it will inherent the
+  properties of that tag. The enclosed tag will be called the child tag and the enclosing tag will be called a parent
+  tag. </p>
+<h3>Using a Separate CSS Style Sheet</h3>
+<p>So for all the nerds reading this. I am aware CSS stands for Cascading Style Sheets, so that I just wrote Cascading
+  Style Sheets Style Sheet. But here is the thing, I don&#39;t care about that.</p>
+<p>Anyways, let&#39;s go over how to use a separate CSS style sheet. </p>
+<p>We mentioned earlier the head of the document can link to the CSS sheets. Doing this will accomplish a few things.
+  First, it will create a separation of concerns. In programming, we typically want to keep things as simple as
+  possible. Separating out the style from the structure can make it easier to track both. </p>
+<p>More relevantly for us, we can reuse the CSS style sheet for many different pages. This will allow us to reduce the
+  amount of code that we need to write overall. And if we want to update the styles for our website, we would only need
+  to update the shared style sheet rather than all the individual pages.</p>
+<p>So lets make and apply a style sheet! </p>
+<p>First, we will need to create a CSS sheet called <em>style.css</em>, and place it in a new folder called
+  <em>styles</em>. Our file structure should look like this:</p>
+<pre><code>|----index.html
+|---------styles
+|--------------style.css
+</code></pre>
+<p><strong>Creating a Style Sheet</strong></p>
+<p>In style.css, copy paste the following:</p>
+<pre><code class='language-css' lang='css'>.myfirststyle {
+	bgcolor:&quot;#f1f1f1&quot;; 
+	color:&quot;#2F4F4F&quot;;
+}
+</code></pre>
+<p>We just created our first style! We named it <code>.myfirststyle</code> and gave it two attributes, one for
+  <code>bgcolor</code> and one for <code>color</code>. A couple things to note. First, what we have here is a css
+  <em>class</em>, meaning it can be applied to different html tags. To create a css class you have to start the name
+  with a period. Second, we put the attributes between curly brackets. The attributes are separated from each other by
+  semicolons and from their values by a colon. </p>
+<p><strong>Adding it into the HTML</strong></p>
+<p>Now in our <em>index.html</em>, write the following:</p>
+<pre><code class='language-html' lang='html'>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Example&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+  &lt;/head&gt;
+  &lt;body class = &quot;myfirststyle&quot;&gt;
+    &lt;p&gt;Create Your Static Website&lt;/p&gt;
+    &lt;p&gt;Here is the content of your site.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>First, we need to load the CSS into the page by adding it to the head of our document. That is accomplished by this
+  line:</p>
+<pre><code class='language-html' lang='html'>    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/style.css&quot;&gt;
+</code></pre>
+<p>Note that in the href, which you may remember from the <code>&lt;a&gt;</code> tag from earlier, creates a hyperlink.
+  Right now we are linking to a local resource, because that style sheet is on your computer. But you can also access
+  online resources with this line. We will go over this more in the next tutorial when we cover bootstrap. </p>
+<p>Finally we need to apply our class to a html tag. We do that on this line:</p>
+<pre><code class='language-html' lang='html'>  &lt;body class = &quot;myfirststyle&quot;&gt;
+</code></pre>
+<p>The great thing about css classes is that they can be stacked. So if we had a second stack called
+  <em>mysecondstyle</em>, we could apply both like so:</p>
+<pre><code class='language-html' lang='html'>  &lt;body class = &quot;myfirststyle mysecondstyle&quot;&gt;
+</code></pre>
+<p>And there you go! Applying the concepts here will let you create a really good looking static website. </p>
+{% endblock %}

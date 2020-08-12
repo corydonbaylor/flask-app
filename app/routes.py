@@ -24,6 +24,10 @@ def analytics():
 def webdev():
     return render_template('webdev.html', title='Web Dev')
 
+@app.route('/webdev/html_css')
+def html_css():
+    return render_template('pages/webdev/html_css.html', title='HTML and CSS')
+
 
 @app.route('/webdev/local_raspberry')
 def local1():
