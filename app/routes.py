@@ -28,6 +28,9 @@ def webdev():
 def html_css():
     return render_template('pages/webdev/html_css.html', title='HTML and CSS')
 
+@app.route('/webdev/bootstrap')
+def bootstrap():
+    return render_template('pages/webdev/bootstrap.html', title='Bootstrap')
 
 @app.route('/webdev/local_raspberry')
 def local1():
