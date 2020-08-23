@@ -36,6 +36,9 @@ def bootstrap():
 def local1():
     return render_template('pages/webdev/using_raspberry.html', title='Hosting: Raspberry Pi')
 
+@app.route('/webdev/hello_flask')
+def flask1():
+    return render_template('pages/webdev/Flask.html', title='Flask pt I: Creating Your First Flask App')
 
 @app.route('/webdev/local_host_2')
 def local2():
