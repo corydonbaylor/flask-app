@@ -38,7 +38,12 @@ def local1():
 
 @app.route('/webdev/hello_flask')
 def flask1():
-    return render_template('pages/webdev/Flask.html', title='Flask pt I: Creating Your First Flask App')
+    return render_template('pages/webdev/Flask.html', title='Flask pt. I: Creating Your First Flask App')
+
+@app.route('/webdev/templates')
+def flask2():
+    return render_template('pages/webdev/templates.html', title='Flask pt. II: Templating with Jinja2')
+
 
 @app.route('/webdev/local_host_2')
 def local2():
