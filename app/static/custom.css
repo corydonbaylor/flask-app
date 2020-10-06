@@ -39,6 +39,8 @@ h6 {
 }
 
  /* main content section css */
+
+ 
 .container {
   padding-top: 2rem;
 }
@@ -170,6 +172,37 @@ h6 {
     margin-right: auto;
     margin-left: auto;
 
+}
+
+
+@media only screen and (max-width: 576px) {
+  .container {
+    max-width: 375px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 992px){
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px){
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
 }
 
 @media (min-width: 768px){
