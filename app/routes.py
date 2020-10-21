@@ -16,6 +16,9 @@ def index():
 def analytics():
     return render_template('analytics.html', title='Analytics')
 
+@app.route('/analytics/getwiki')
+def getwiki():
+    return render_template('pages/analytics/getwiki.html', title='getwiki')
 
 # web devlopment routes
 

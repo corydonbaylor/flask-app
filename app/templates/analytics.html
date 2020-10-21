@@ -14,33 +14,55 @@
         and powerpoint decks, to web apps built in shiny, to automations built in r markdown, and to anomaly detection
         models using time series decomposition.
     </p>
-    <a class="a-btn" href="#nlp">
+    <a class="a-btn" href="#getwiki">
         <div class="btn" style="vertical-align: middle;">
-            <i class="fa fa-comments" style="font-size: 1.25rem; padding-right: .5rem;"></i>
-            Natural Language Processing</div>
+            <i class="fab fa-wikipedia-w" style="font-size: 1.25rem; padding-right: .5rem;"></i>
+            getwiki Package</div>
     </a>
-    <div class="btn" style="vertical-align: middle;">
-        <i class="fa fa-code" style="font-size: 1.25rem; padding-right: .5rem;"></i>
-        Cleaner Package</div>
-
-    <a class="a-btn" href="#deck-themer">
+    <a class="a-btn" href="#xarigan">
         <div class="btn" style="vertical-align: middle;">
             <i class="fas fa-robot" style="font-size: 1.25rem; padding-right: .5rem;"></i>
-            Deck Themer</div>
+            Xaringan Tutorial</div>
     </a>
     <br><br>
 </div>
-<div class="sub-section">
+<div id="getwiki" class="sub-section">
+    <h3>Get Wikipedia Data with getwiki</h3>
+    <div class="d-flex flex-wrap">
+        <div class="very-small-col align-self-center">
+            <a href="{{ url_for('getwiki') }}">
+                <div class="btn" style="border: 0cm;">
+                    <i class="fab fa-wikipedia-w" style="font-size: 3.25rem; padding-right: .5rem;"></i>
+                </div>
+            </a>
+        </div>
+        <div class="very-big-col">
+            <p>Getting Wikipedia data into R can be a breeze with <a href="{{ url_for('getwiki') }}">
+                    getwiki </a>. The purpose of this package is
+                to import
+                Wikipedia articles into R, quickly and easily. <code>getwiki</code> will return articles in a format
+                that plays nice
+                with <code>tidytext</code>, simplifying your NLP workflow. Previously, the easiest way to import the
+                text of a
+                Wikipedia article was to highlight everything and then copy paste it into a character vector. <a
+                    href="https://github.com/corydonbaylor/getwiki">Check out the github page!</a></p>
+
+        </div>
+
+    </div>
+</div>
+<div id="xarigan" class="sub-section">
     <h3>Automated Deck Building with Xaringan</h3>
     <div class="d-flex flex-wrap">
-        <div class="col-left">
+        <div class="small-col align-self-center">
             <a href="{{url_for('static', filename='analytics/xaringan/template.html')}}">
                 <div class="image-link">
                     <img src="{{url_for('static', filename='images/analytics/booz-theme.PNG')}}" style="width:100%;">
                 </div>
             </a>
+
         </div>
-        <div class="col-right align-self-center">
+        <div class="big-col align-self-center">
             <p>
                 <strong>Do you hate updating decks each week?</strong>
             </p>
@@ -55,4 +77,6 @@
         </div>
     </div>
 </div>
+
+
 {% endblock %}
