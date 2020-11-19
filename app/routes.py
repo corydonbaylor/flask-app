@@ -101,3 +101,12 @@ def calendar():
 @app.route('/viz/barchart_race')
 def barchart():
     return render_template('/pages/viz/barchart_race.html', title='Barchart Race')
+
+# travel
+@app.route('/travel')
+def travel():
+    return render_template('travel.html', title='Travel')
+
+@app.route('/travel/argentina')
+def argentina():
+    return render_template('pages/travel/argentina.html', title='Travel')
