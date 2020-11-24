@@ -39,8 +39,16 @@ h6 {
 }
 
  /* main content section css */
+.grad{
+  background-color: white;
+  padding: 3rem;
+  border-radius: 5px;
+}
 
- 
+.grad-image{
+  background-image: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+}
+
 .container {
   padding-top: 2rem;
 }
@@ -176,6 +184,10 @@ h6 {
 .argentina-building{
   background-image: url('travel/argentina/argentina_building.jpg');
 }
+
+.costa_rica{
+  background-image: url('travel/costa_rica/irazu.JPG');
+}
 .caption{
   position: absolute;
   left: 0;
@@ -216,7 +228,7 @@ h6 {
 
 .parallax{
   position: relative;
-  opacity: .92;
+  opacity: .8;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -229,10 +241,47 @@ h6 {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #343a40;
     margin: 0 auto;
 
   }
+
+.bg-grey{
+  background-color: #343a40;
+}
+
+.trans-navbar{
+  font-weight: 400;
+  color: white;
+}
+
+.trans-navbar .nav-link{
+  font-weight: 400;
+  color: white;
+}
+
+.trans-navbar.active {
+  background: #fff;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.trans-navbar.active .nav-link {
+  color: #555;
+}
+
+.trans-navbar.active .nav-link:hover,
+.trans-navbar.active .nav-link:focus {
+  color: #555;
+  text-decoration: none;
+}
+
+.trans-navbar.active .navbar-brand {
+  color: #555;
+}
+
 .navbar {
   width: 100%;
     padding-right: 15px;
