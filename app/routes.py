@@ -7,18 +7,18 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Home')
+    return render_template('index.html', title='Home', color='blues')
 
 # analytics routes
 
 
 @app.route('/analytics')
 def analytics():
-    return render_template('analytics.html', title='Analytics')
+    return render_template('analytics.html', title='Analytics', color='greys')
 
 @app.route('/analytics/getwiki')
 def getwiki():
-    return render_template('pages/analytics/getwiki.html', title='getwiki')
+    return render_template('pages/analytics/getwiki.html', title='getwiki', color='greys')
 
 # web devlopment routes
 
@@ -85,22 +85,22 @@ def viz():
         }
 
     ]
-    return render_template('viz.html', deck=deck, title='Visualizations')
+    return render_template('viz.html', deck=deck, title='Visualizations', color='greens')
 
 
 @app.route('/viz/covid_dotmap')
 def covid_dotmap():
-    return render_template('/pages/viz/covid_dotmap.html', title='Dot Map')
+    return render_template('/pages/viz/covid_dotmap.html', title='Dot Map', color='greens')
 
 
 @app.route('/viz/calendar')
 def calendar():
-    return render_template('/pages/viz/twitter_viz.html', title='Sentiment Calendar')
+    return render_template('/pages/viz/twitter_viz.html', title='Sentiment Calendar', color='greens')
 
 
 @app.route('/viz/barchart_race')
 def barchart():
-    return render_template('/pages/viz/barchart_race.html', title='Barchart Race')
+    return render_template('/pages/viz/barchart_race.html', title='Barchart Race', color='greens')
 
 # travel
 @app.route('/travel')

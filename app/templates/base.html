@@ -32,15 +32,22 @@
 
 </head>
 {% endblock %}
+
 <div class="navbar-custom trans-navbar">
     <nav class="navbar navbar-expand-lg trans-navbar">
         {% include 'partials/navbar.html' %}
     </nav>
 </div>
+{% if color %}
 
-<body class="grad-image">
-    <div class="container grad">
-        {% block content %}
-        {% endblock %}
-    </div>
-</body>
+<body class="{{color}}">
+    {% else %}
+
+    <body class="oranges">
+        {% endif %}
+
+        <div class="container grad">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
