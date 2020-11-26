@@ -1,0 +1,86 @@
+
+/* Navbar for main pages */
+.trans-navbar{
+    font-weight: 400;
+    color: white;
+  }
+  
+  .trans-navbar .nav-link{
+    font-weight: 400;
+    color: white;
+  }
+  
+  .trans-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .trans-navbar.navbar-toggler {
+    border-color: rgb(255,255,255);
+  } 
+  
+  .trans-navbar.active {
+    background: #fff;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  
+  .trans-navbar.active .nav-link {
+    color: #555;
+  }
+  
+  .trans-navbar.active .nav-link:hover,
+  .trans-navbar.active .nav-link:focus {
+    color: #555;
+    text-decoration: none;
+  }
+  
+  .trans-navbar.active .navbar-brand {
+    color: #555;
+  }
+  
+  .trans-navbar.active .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(85,85,85, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+  
+  .trans-navbar.active.navbar-toggler {
+    border-color: rgb(85,85,85);
+  } 
+
+/* Skill Icons for homepage*/
+.skill-icons-list{
+padding-left: 0;
+list-style: none;
+display: inline-block;
+}
+
+.skill-icons{
+/* color: #868e96; */
+font-size: 2.5rem; 
+margin-right: .75rem;
+display: inline-block;
+margin-right: .75rem;
+}
+
+.skill-icons:hover{
+color: #BD5D38
+}
+
+/* Professional Links */
+.prof-link {
+    color:white;
+    text-align: center;
+}
+
+.prof-link a{
+    color:white;
+    text-decoration:none;
+    text-align: center;
+}
+
+.prof-link a:hover{
+    text-decoration: underline;
+}
