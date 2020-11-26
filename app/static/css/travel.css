@@ -1,0 +1,72 @@
+/* Travel */
+
+.travel-icon{
+    background:#3caea3;
+    color: white;
+    padding:20px;
+    text-align: center;
+    margin: 10px !important;
+  }
+  
+  .travel-blue{
+    background: #305e7a;
+  }
+  
+  .argentina{
+    background-image: url('../travel/argentina/buenos_aires.jpg');
+  }
+  
+  .argentina-building{
+    background-image: url('../travel/argentina/argentina_building.jpg');
+  }
+  
+  .costa_rica{
+    background-image: url('../travel/costa_rica/irazu.JPG');
+  }
+  .caption{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    border:none !important;
+  }
+  
+  .caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    font-style: italic;
+    letter-spacing: 10px;
+  }
+  
+  .para-tex{
+    color:black;
+    background-color:white;
+    text-align: justify;
+    padding: 50px;
+  }
+  
+  .travel-article{
+    height:300px;
+  }
+  
+  .travel-title{
+    height:150px;
+  }
+  
+  .travel-title:hover {
+    opacity: 1;
+  }
+  
+  .parallax{
+    position: relative;
+    opacity: .8;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 0px !important;
+  }

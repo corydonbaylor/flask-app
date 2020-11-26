@@ -181,78 +181,7 @@ h6 {
   padding: 1rem;
 }
 
-/* Travel */
 
-.travel-icon{
-  background:#3caea3;
-  color: white;
-  padding:20px;
-  text-align: center;
-  margin: 10px !important;
-}
-
-.travel-blue{
-  background: #305e7a;
-}
-
-.argentina{
-  background-image: url('travel/argentina/buenos_aires.jpg');
-}
-
-.argentina-building{
-  background-image: url('travel/argentina/argentina_building.jpg');
-}
-
-.costa_rica{
-  background-image: url('travel/costa_rica/irazu.JPG');
-}
-.caption{
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 100%;
-  text-align: center;
-  color: #000;
-  border:none !important;
-}
-
-.caption span.border {
-  background-color: #111;
-  color: #fff;
-  padding: 18px;
-  font-size: 25px;
-  font-style: italic;
-  letter-spacing: 10px;
-}
-
-.para-tex{
-  color:black;
-  background-color:white;
-  text-align: justify;
-  padding: 50px;
-}
-
-.travel-article{
-  height:300px;
-}
-
-.travel-title{
-  height:150px;
-}
-
-.travel-title:hover {
-  opacity: 1;
-}
-
-.parallax{
-  position: relative;
-  opacity: .8;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 0px !important;
-}
 /* navbar  */
 
 .navbar-custom {
@@ -267,55 +196,7 @@ h6 {
   background-color: #343a40;
 }
 
-.trans-navbar{
-  font-weight: 400;
-  color: white;
-}
 
-.trans-navbar .nav-link{
-  font-weight: 400;
-  color: white;
-}
-
-.trans-navbar .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.trans-navbar.navbar-toggler {
-  border-color: rgb(255,255,255);
-} 
-
-.trans-navbar.active {
-  background: #fff;
-  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1030;
-}
-
-.trans-navbar.active .nav-link {
-  color: #555;
-}
-
-.trans-navbar.active .nav-link:hover,
-.trans-navbar.active .nav-link:focus {
-  color: #555;
-  text-decoration: none;
-}
-
-.trans-navbar.active .navbar-brand {
-  color: #555;
-}
-
-.trans-navbar.active .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(85,85,85, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.trans-navbar.active.navbar-toggler {
-  border-color: rgb(85,85,85);
-} 
 
 .navbar {
   width: 100%;
@@ -504,10 +385,13 @@ CSS for buttons
   border-color:#606c71;
   transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
 
-  .btn + .btn {
-    margin-left: 1rem; }
+.btn + .btn {
+  margin-left: 1rem; }
 
-.btn:hover {
+.a-btn + .a-btn {
+  margin-left: 1rem; }
+
+.a-btn .btn:hover {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   background-color:#606c71;
@@ -552,23 +436,7 @@ a .btn {
   text-decoration: none;
 }
 
-.skill-icons-list{
-  padding-left: 0;
-  list-style: none;
-  display: inline-block;
-}
 
-.skill-icons{
-  /* color: #868e96; */
-  font-size: 2.5rem; 
-  margin-right: .75rem;
-  display: inline-block;
-  margin-right: .75rem;
-}
-
-.skill-icons:hover{
-  color: #BD5D38
-}
 
 #top_button {
   display: none;

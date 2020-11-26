@@ -12,23 +12,15 @@
     <!-- bootstrap loadouts -->
     {% include 'partials/head/bootstrap.html' %}
     <link rel="stylesheet" href="{{url_for('.static', filename='custom.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='css/main.css')}}">
     <link rel="stylesheet"
         href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
     <script src="https://kit.fontawesome.com/2a1205b7da.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
 
-    <script>
-        $(function () {
-            $(window).on('scroll', function () {
-                if ($(window).scrollTop() > 40) {
-                    $('.trans-navbar').addClass('active');
-                } else {
-                    $('.trans-navbar').removeClass('active');
-                }
-            });
-        });
-    </script>
+    <!-- javascript -->
+    <script src="{{url_for('.static', filename='javascript/head.js')}}"></script>
 
 </head>
 {% endblock %}
@@ -50,4 +42,6 @@
             {% block content %}
             {% endblock %}
         </div>
+        <p class='prof-link'><a href="https://github.com/corydonbaylor">Github</a> | <a
+                href="https://www.linkedin.com/in/corydon-baylor-254a4a8b/">LinkedIn</p>
     </body>
