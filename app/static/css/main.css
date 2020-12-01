@@ -50,19 +50,48 @@
     border-color: rgb(85,85,85);
   } 
 
+/* main content section css */
+.grad{
+    background-color: white;
+    padding: 3rem;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 576px) {
+    .grad {
+        padding:25px;
+    }
+}
+
+.blues{
+    background-image: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.greens{
+    background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+}
+
+.oranges{
+    background-image: linear-gradient(14deg, #feb692 10%, #ea5455 100%);
+}
+
+.greys{
+    background-image: linear-gradient(80deg, #a3bded 0%, #6991c7 100%)
+}
+
 /* Skill Icons for homepage*/
 .skill-icons-list{
-padding-left: 0;
-list-style: none;
-display: inline-block;
+    padding-left: 0;
+    list-style: none;
+    display: inline-block;
 }
 
 .skill-icons{
 /* color: #868e96; */
-font-size: 2.5rem; 
-margin-right: .75rem;
-display: inline-block;
-margin-right: .75rem;
+    font-size: 2.5rem; 
+    margin-right: .75rem;
+    display: inline-block;
+    margin-right: .75rem;
 }
 
 .skill-icons:hover{
@@ -77,6 +106,7 @@ color: #BD5D38
 .prof-link {
     color:white;
     text-align: center;
+    padding-top: 10px;
 }
 
 .prof-link a{
