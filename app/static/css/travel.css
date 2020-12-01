@@ -59,6 +59,11 @@
     height:300px;
   }
   
+  @media only screen and (max-width: 576px) {
+    .travel-article {
+        height: 150px;
+    }
+}
   .travel-title{
     height:150px;
   }
