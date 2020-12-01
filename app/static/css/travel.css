@@ -23,6 +23,10 @@
   .costa_rica{
     background-image: url('../travel/costa_rica/irazu.JPG');
   }
+
+  .costa_rica2{
+    background-image: url('../travel/costa_rica/cartago.jpeg');
+  }
   .caption{
     position: absolute;
     left: 0;
