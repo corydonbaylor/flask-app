@@ -49,6 +49,12 @@
     padding: 50px;
   }
   
+  @media only screen and (max-width: 576px) {
+    .para-tex {
+        padding:25px;
+    }
+}
+
   .travel-article{
     height:300px;
   }

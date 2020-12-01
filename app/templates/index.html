@@ -1,55 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h3>About Me</h3>
+<div id='about-me' class="first-section">
+    <h3>About Me</h3>
 
-<!-- Who I am -->
+    <!-- Who I am -->
 
-<p>
-    I'm Corydon Baylor and there is a 90% chance that I sent you this link rather than
-    you discovering this organically. I am a data scientist at Booz Allen, and a bit of a
-    R programming enthusiast in general.
-</p>
-<p>
-    I thought it would be a good idea to consolidate
-    <a href="https://github.com/corydonbaylor">all my github projects</a> into one
-    nice looking webpage, with the added benefit of being able to practice my html and css skills.
-</p>
-
-<!-- Whats here -->
-<h3>Skills & Languages</h3>
-<ul class='skill-icons-list'>
-    <li class='skill-icons icons-active' onclick='change(this.id)' id='r'>
-        <i class="fab fa-r-project"></i>
-    </li>
-    <li class='skill-icons' onclick='change(this.id)' id='python'>
-        <i class="devicon-python-plain"></i>
-    </li>
-    <li class='skill-icons' onclick='change(this.id)' id='js'>
-        <i class="devicon-javascript-plain"></i>
-    </li>
-    <li class='skill-icons' onclick='change(this.id)' id='html'>
-        <i class="devicon-html5-plain-wordmark"></i>
-    </li>
-    <li class='skill-icons' onclick='change(this.id)' id='css'>
-        <i class="devicon-css3-plain-wordmark"></i>
-    </li>
-    <li class='skill-icons' onclick='change(this.id)' id='sql'>
-        <i class="devicon-mysql-plain-wordmark"></i>
-    </li>
-    <li class='skill-icons' onclick='change(this.id)' id='git'>
-        <i class="devicon-git-plain"></i>
-    </li>
-    <li class='skill-icons' onclick='change(this.id)' id='boot'>
-        <i class="devicon-bootstrap-plain"></i>
-    </li>
-</ul>
-<div id='skill-content'>
-    <p>I have been using R nearly every day for the past four years. I prefer tidyverse for data manipulation, ggplot2
-        for <a href="/viz">visualizations</a>, shiny for interactivity, and rmarkdown for report automations. I am
-        confident that I can complete nearly any data related task thrown my way in R.</p>
+    <p>
+        I'm Corydon Baylor and there is a 90% chance that I sent you this link rather than
+        you discovering this organically. I am a data scientist at Booz Allen, and a bit of a
+        R programming enthusiast in general.
+    </p>
+    <p>
+        I thought it would be a good idea to consolidate
+        <a href="https://github.com/corydonbaylor">all my github projects</a> into one
+        nice looking webpage, with the added benefit of being able to practice my html and css skills.
+    </p>
 </div>
-
+<div id="skills" class="final-section">
+    <h3>Skills & Languages</h3>
+    <ul class='skill-icons-list'>
+        <li class='skill-icons icons-active' onclick='change(this.id)' id='r'>
+            <i class="fab fa-r-project"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='python'>
+            <i class="devicon-python-plain"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='js'>
+            <i class="devicon-javascript-plain"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='html'>
+            <i class="devicon-html5-plain-wordmark"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='css'>
+            <i class="devicon-css3-plain-wordmark"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='sql'>
+            <i class="devicon-mysql-plain-wordmark"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='git'>
+            <i class="devicon-git-plain"></i>
+        </li>
+        <li class='skill-icons' onclick='change(this.id)' id='boot'>
+            <i class="devicon-bootstrap-plain"></i>
+        </li>
+    </ul>
+    <div id='skill-content'>
+        <p>I have been using R nearly every day for the past four years. I prefer tidyverse for data manipulation,
+            ggplot2
+            for <a href="/viz">visualizations</a>, shiny for interactivity, and rmarkdown for report automations. I am
+            confident that I can complete nearly any data related task thrown my way in R.</p>
+    </div>
+</div>
 <script src="{{url_for('.static', filename='javascript/change.js')}}"></script>
 
 {% endblock %}

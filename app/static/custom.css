@@ -38,34 +38,7 @@ h6 {
   font-size: 12px;
 }
 
- /* main content section css */
-.grad{
-  background-color: white;
-  padding: 3rem;
-  border-radius: 5px;
-}
 
-@media only screen and (max-width: 576px) {
-  .grad {
-    padding:15px;
-  }
-}
-
-.blues{
-  background-image: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
-}
-
-.greens{
-  background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
-}
-
-.oranges{
-  background-image: linear-gradient(14deg, #feb692 10%, #ea5455 100%);
-}
-
-.greys{
-  background-image: linear-gradient(80deg, #a3bded 0%, #6991c7 100%)
-}
 
 .container {
   padding-top: 2rem;
@@ -210,7 +183,7 @@ h6 {
 
 @media only screen and (max-width: 576px) {
   .container {
-    max-width: 375px;
+    width: 100%;
   }
 }
 
@@ -347,6 +320,11 @@ Creating Subsections
   padding-top: 2rem !important;
   padding-bottom: 2rem !important;
 }
+
+.final-section{
+  padding-top: 2rem !important;
+}
+
 
 
 /*
