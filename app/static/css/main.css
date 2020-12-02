@@ -1,4 +1,13 @@
 
+.img-center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 /* Navbar for main pages */
 .trans-navbar{
     font-weight: 400;

@@ -2,20 +2,26 @@
 
 {% block content %}
 <div id='about-me' class="first-section">
-    <h3>About Me</h3>
+    <div class="d-flex flex-wrap">
+        <div class="small-col align-self-center">
+            <img style='border-radius: 50%;' class='img-center' src="{{url_for('static', filename='images/prof.png')}}">
+        </div>
+        <div class="big-col align-self-center">
+            <h3>About Me</h3>
+            <p>
+                I'm Corydon Baylor, and there is a 90% chance that I sent you this link rather than
+                you discovering this organically. I am a data scientist at Booz Allen, and a bit of a
+                R programming enthusiast in general.
+            </p>
+            <p>
+                I thought it would be a good idea to consolidate
+                <a href="https://github.com/corydonbaylor">all my github projects</a> into one
+                nice looking webpage, with the added benefit of being able to practice my html and css skills.
+            </p>
+        </div>
+    </div>
 
     <!-- Who I am -->
-
-    <p>
-        I'm Corydon Baylor and there is a 90% chance that I sent you this link rather than
-        you discovering this organically. I am a data scientist at Booz Allen, and a bit of a
-        R programming enthusiast in general.
-    </p>
-    <p>
-        I thought it would be a good idea to consolidate
-        <a href="https://github.com/corydonbaylor">all my github projects</a> into one
-        nice looking webpage, with the added benefit of being able to practice my html and css skills.
-    </p>
 </div>
 <div id="skills" class="final-section">
     <h3>Skills & Languages</h3>
