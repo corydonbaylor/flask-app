@@ -15,31 +15,6 @@ a {
   a:hover {
     text-decoration: underline; }
 
-
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 25px;
-}
-h3 {
-  font-size: 1.17em;
-}
-h4 {
-  font-size: 1.1em;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-
-
-
 .container {
   padding-top: 2rem;
 }
