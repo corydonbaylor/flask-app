@@ -1,4 +1,36 @@
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+h1, h2, h3{
+  font-family: "Source Sans Pro" !important;
+}
+
+p {
+  font-family: 'Roboto';
+}
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 22px;
+}
+h4 {
+  font-size: 1.1em;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+
 .img-center{
   display: block;
   margin-left: auto;
