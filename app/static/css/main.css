@@ -12,6 +12,10 @@
 .trans-navbar{
     font-weight: 400;
     color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
   }
   
   .trans-navbar .nav-link{
@@ -30,10 +34,6 @@
   .trans-navbar.active {
     background: #fff;
     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
     z-index: 1030;
   }
   
@@ -61,6 +61,7 @@
 
 /* main content section css */
 .grad{
+    margin-top: 3.5rem;
     background-color: white;
     padding: 3rem;
     border-radius: 5px;

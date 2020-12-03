@@ -2,7 +2,7 @@
 // adds the active class to the navbar once scrolled past 95
 $(function () {
     $(window).on('scroll', function () {
-        if ($(window).scrollTop() > 95) {
+        if ($(window).scrollTop() > 35) {
             $('.trans-navbar').addClass('active');
         } else {
             $('.trans-navbar').removeClass('active');
