@@ -128,3 +128,34 @@ color: #BD5D38
 .prof-link a:hover{
     text-decoration: underline;
 }
+
+/*
+Creating Subsections
+*/
+
+.first-section{
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 2rem !important;
+}
+
+.hero-section p{
+  padding-bottom: 1rem !important;
+}
+.hero-section:after {
+  content:"";
+  background: linear-gradient(to right,#747677, #5f6163,#747677);
+  display: block;
+  height:1px;
+  width: 100%;
+  bottom: 0;
+}
+
+.sub-section{
+  border-bottom: 1px solid #dee2e6;
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+.final-section{
+  padding-top: 2rem !important;
+}
