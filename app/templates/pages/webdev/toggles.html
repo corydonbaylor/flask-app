@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/toggles.css')}}">
+<script src="{{url_for('.static', filename='javascript/toggles.js')}}"></script>
+
+{% endblock%}
+
+{% block content %}
+<div class="row">
+    <div class="col-2">
+        <div class="row">
+            <p>Dark Mode </p>
+            <div class="switch" id='nightmode' onclick='darkmode()'>
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </div>
+        </div>
+        <div class="row">
+            <p> Dark Mode </p>
+            <div class="switch" id='nightmode' onclick='darkmode()'>
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-10">
+        <p>
+            I'm Corydon Baylor, and there is a 90% chance that I sent you this link rather than
+            you discovering this organically. I am a data scientist at Booz Allen, and a bit of a
+            R programming enthusiast in general.
+        </p>
+        <p>
+            This site is a place for my various side projects.
+        </p>
+    </div>
+</div>
+
+
+
+{% endblock %}
