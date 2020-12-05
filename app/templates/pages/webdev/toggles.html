@@ -10,28 +10,31 @@
 <div class="row">
     <div class="col-2">
         <div class="row">
-            <p>Dark Mode </p>
-            <div class="switch" id='nightmode' onclick='darkmode()'>
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </div>
+            <p> Dark Mode </p>
+            <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                id='darkmode' onclick='darkmode()'>
+                <div class="handle"></div>
+            </button>
         </div>
         <div class="row">
-            <p> Dark Mode </p>
-            <div class="switch" id='nightmode' onclick='darkmode()'>
-                <input type="checkbox">
-                <span class="slider round"></span>
-            </div>
+            <p> 90's Mode </p>
+            <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                id='ninties' onclick='ninties()'>
+                <div class="handle"></div>
+            </button>
         </div>
     </div>
     <div class="col-10">
         <p>
-            I'm Corydon Baylor, and there is a 90% chance that I sent you this link rather than
-            you discovering this organically. I am a data scientist at Booz Allen, and a bit of a
-            R programming enthusiast in general.
+            Darkmode is pretty trendy in UI/UX right now&mdash;and for good reason! I oftentimes am working on this
+            website into the wee hours of the morning, and while I love my bright colors, it can feel like staring into
+            the sun when the lights are off.
         </p>
         <p>
-            This site is a place for my various side projects.
+            So I guess this one page will be a refugee for my eyes at night.
+        </p>
+        <p>
+            It got me thinking, "what other toggles would be useful for a website?"
         </p>
     </div>
 </div>
