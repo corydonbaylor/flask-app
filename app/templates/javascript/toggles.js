@@ -16,7 +16,7 @@ function toggle(id, theme) {
     }
 
     // other classes and toggles 
-    const classes = ['darkmode', 'ninties', 'test'];
+    const classes = ['darkmode', 'ninties', 'hacker'];
     const result = classes.filter(f => f != theme);
 
     // if the button is active, switch it off
@@ -69,20 +69,48 @@ function toggle_content(id) {
         case 'ninties':
             text = `
                     <div class = 'row'>
-                        <div class = 'col'>
-                            <p> welcome to the ninties. <p>
+                        <marquee style = 'font-size:30px; color:lime; font-family:'comic sans ms'; width: 100%> welcome to the ninties!! </marquee>
+                        <div class = 'col-8'>
+                        <p> 
+                            Now this is a front end trend I could get behind! Remember when websites had almost no CSS but definitely had a marquee scrolling somewhere? I do. 
+                        </p>    
+                        <p>
+                            This is back in the 
+                            day when all caps was an aesthetic choice, not the work of a psycho. This is back when GREEN DAY was putting out bangers, NEOPETS was 
+                            <span style = 'color:red'>fire</span>, and yahoo was my homepage. Yikes. 
+                        </p>
                         </div>
-                        <div class = 'col'>
+                        <div class = 'col-4'>
                             <img src = "{{url_for('static', filename='images/webdev/toggle/dancing_baby.gif')}}">
                         </div>
                     </div>
                     `
             break;
         case 'darkmode':
-            text = '<p>darkmode on</p>'
+            text = `<p>
+                        Ah the sweet release of dark mode. I could stare at this page until late into the night and early into the morning. What wonderful beauty these shades of grey
+                        are. Darkmode is sunglasses for my computer. And this website has nice sunglasses, ray-bans even.
+                    </p>
+                    <p>
+                        Are ray-bans still cool?
+                    </p>
+                    <p>
+                        I wouldn't know. I never wear sunglasses. I feel like a poser whenever I do. Like I am trying to be cool. Well guess what, I'm just trying not to squint.
+                        Not a problem here though, not with this sweet dark mode. 
+                    </p>
+                    `
+
             break;
-        case 'test':
-            text = '<p>I am not a web developer but feel comfortable enough reading and writing javascript to add finishing touches (like this skill section) using javascript.</p>'
+        case 'hacker':
+            text = `<p>
+                        Oh wow! Are we in the matrix? Or in a Fallout 3 terminal? You know honestly, this isn't a good way to design a website. Like yes, its readable (kinda). But it clashes
+                        so strongly with any modern web element. I mean just <span style='font-style:italic;'>look </span> at those toggles. I didn't know that DOS could run iOS apps.
+                        Gottem.  
+                    </p>
+                    <p>
+                        Alright, let's go ahead and switch this one off. This toggle is not a winner. 
+                    </p>
+            `
             break;
         default:
             text = default_content

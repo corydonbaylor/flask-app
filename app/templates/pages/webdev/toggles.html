@@ -8,30 +8,42 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-2">
+    <div class="col-sm-3">
         <div class="row">
-            <p> Dark Mode </p>
-            <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
-                id='darkmode' onclick='toggle(this.id, "darkmode"); toggle_content(this.id)'>
-                <div class="handle"></div>
-            </button>
+            <div class="col-8">
+                <p> Dark Mode </p>
+            </div>
+            <div class='col-4'>
+                <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                    id='darkmode' onclick='toggle(this.id, "darkmode"); toggle_content(this.id)'>
+                    <div class="handle"></div>
+                </button>
+            </div>
         </div>
         <div class="row">
-            <p> 90's Mode </p>
-            <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
-                id='ninties' onclick='toggle(this.id, "ninties"); toggle_content(this.id)'>
-                <div class="handle"></div>
-            </button>
+            <div class="col-8">
+                <p> Hacker Mode </p>
+            </div>
+            <div class='col-4'>
+                <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                    id='hacker' onclick='toggle(this.id, "hacker"); toggle_content(this.id)'>
+                    <div class="handle"></div>
+                </button>
+            </div>
         </div>
         <div class="row">
-            <p> Test Mode </p>
-            <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off" id='test'
-                onclick='toggle(this.id, "test"); toggle_content(this.id)'>
-                <div class="handle"></div>
-            </button>
+            <div class="col-8">
+                <p> 90's Mode </p>
+            </div>
+            <div class="col-4">
+                <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                    id='ninties' onclick='toggle(this.id, "ninties"); toggle_content(this.id)'>
+                    <div class="handle"></div>
+                </button>
+            </div>
         </div>
     </div>
-    <div class="col-10" id='toggle_content'>
+    <div class="col-sm-9" id='toggle_content'>
         <p>
             Darkmode is pretty trendy in UI/UX right now&mdash;and for good reason! I oftentimes am working on this
             website into the wee hours of the morning, and while I love my bright colors, it can feel like staring into

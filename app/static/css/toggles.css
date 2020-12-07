@@ -43,6 +43,36 @@
   font-family: 'comic sans ms';
 }
 
+/*  Hacker */
+.hacker{
+  background-color: black;  
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  color: #33ff33;
+}
+
+.grad.hacker {
+  background-color: black !important;
+  border-radius: 0px;
+  border: 1px solid #33ff33;
+}
+
+.hacker p{
+  color: #33ff33;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.hacker a{
+  color: #33ff33 !important;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.btn-toggle.hacker{
+  background: black;
+}
+
+.btn-toggle.btn-sm.hacker > .handle{
+  background-color: #33ff33 !important
+}
 /* Switch code */
 .btn {
   display: inline-block;
