@@ -26,7 +26,7 @@ def getwiki():
 @app.route('/webdev')
 def webdev():
     return render_template('webdev.html', title='Web Dev')
-    
+
 @app.route('/webdev/linux_git')
 def linux_git():
     return render_template('pages/webdev/linux_git.html', title='Linux and Git')
@@ -114,3 +114,8 @@ def argentina():
 @app.route('/travel/costa_rica')
 def costa_rica():
     return render_template('pages/travel/costa_rica.html', title='Costa Rica')
+
+# javascript
+@app.route("/toggle_js")
+def toggle_js():
+    return render_template("/javascript/toggles.js")
