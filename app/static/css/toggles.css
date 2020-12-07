@@ -29,14 +29,18 @@
   background-image: url('../images/webdev/toggle/stary_night.gif');
   background-size: auto;
   margin: auto;
-  width: 900px;
+  font-family: 'comic sans ms';
+
 }
 .grad.ninties {
   background-color: #656565 !important;
+  border-radius: 0px;
+  border: 8px inset white;
 }
 
 .ninties p{
   color: white;
+  font-family: 'comic sans ms';
 }
 
 /* Switch code */

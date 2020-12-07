@@ -118,3 +118,8 @@ def argentina():
 @app.route('/travel/costa_rica')
 def costa_rica():
     return render_template('pages/travel/costa_rica.html', title='Costa Rica')
+
+# javascript
+@app.route("/toggle_js")
+def toggle_js():
+    return render_template("/javascript/toggles.js")
