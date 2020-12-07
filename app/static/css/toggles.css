@@ -13,14 +13,26 @@
 
 /* DARK MODE*/
 .darkmode{
-  background-color: #444444;
+  background-color: #18191a;
 }
 .grad.darkmode {
-  background-color: #656565 !important;
+  background-color: #3a3b3c !important;
 }
 
 .darkmode p{
-  color: white;
+  color: #e4e6eb;
+}
+
+.darkmode h2{
+  color: #e4e6eb;
+}
+
+.darkmode h3{
+  color: #e4e6eb;
+}
+
+.darkmode a {
+  color: #4f99ff;
 }
 
 /*  90s! */
@@ -40,9 +52,21 @@
 
 .ninties p{
   color: white;
-  font-family: 'comic sans ms';
+  font-family: 'comic sans ms' !important;
 }
 
+.ninties h2{
+  color: orange;
+  font-family: 'comic sans ms' !important;
+}
+
+.ninties h3{
+  color: orchid;
+  font-family: 'comic sans ms';
+}
+.ninties a {
+  color: #4f99ff;
+}
 /*  Hacker */
 .hacker{
   background-color: black;  
@@ -72,6 +96,16 @@
 
 .btn-toggle.btn-sm.hacker > .handle{
   background-color: #33ff33 !important
+}
+
+.hacker h2{
+  color: #33ff33;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
+}
+
+.hacker h3{
+  color: #33ff33;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
 }
 
 /*  gary busey */

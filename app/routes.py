@@ -27,10 +27,6 @@ def getwiki():
 def webdev():
     return render_template('webdev.html', title='Web Dev')
 
-@app.route('/toggles')
-def toggles():
-    return render_template('pages/webdev/toggles.html', title='Toggles')
-
 @app.route('/webdev/linux_git')
 def linux_git():
     return render_template('pages/webdev/linux_git.html', title='Linux and Git')
