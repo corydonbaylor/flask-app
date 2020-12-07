@@ -8,15 +8,19 @@ function toggle(id, theme) {
     // body
     var body = document.body;
 
-    // ninties requires a different theme
-    if (theme == 'ninties') {
-        theme_bg = 'ninties_bg'
-    } else {
-        theme_bg = theme
+    // ninties and gary requires a different theme
+    switch (theme) {
+        case 'ninties':
+            theme_bg = 'ninties_bg'
+            break;
+        case 'gary':
+            theme_bg = 'gary_bg'
+            break;
+        default:
+            theme_bg = theme
     }
-
     // other classes and toggles 
-    const classes = ['darkmode', 'ninties', 'hacker'];
+    const classes = ['darkmode', 'ninties', 'hacker', 'gary'];
     const result = classes.filter(f => f != theme);
 
     // if the button is active, switch it off
@@ -59,10 +63,10 @@ function toggle_content(id) {
                                 the sun when the lights are off.
                             </p>
                             <p>
-                                So I guess this one page will be a refugee for my eyes at night.
+                                We've come to expect darkmode from websites. But I believe us web designers are capable of so much more!
                             </p>
                             <p>
-                                It got me thinking, "what other toggles would be useful for a website?"
+                                So I would like to purpose a few more potential toggles that I think many will come to see as a necessity.
                             </p>
                             `
     switch (id) {
@@ -111,6 +115,25 @@ function toggle_content(id) {
                         Alright, let's go ahead and switch this one off. This toggle is not a winner. 
                     </p>
             `
+            break;
+        case 'gary':
+            text = `<p>
+                        How can we intergrate Gary Busey into modern web design? 
+                        
+                    </p>
+                    <p>    
+                        I always try and stay at the forefront of web design &mdash; in that I follow what Apple is doing 
+                        and then do whatever that is. And nothing says "cutting edge" like doing what hasn't been done before, and I have never seen the "Point Break" villain Gary Busey
+                        as a tiled background on someone's webpage.    
+                    </p>
+                    <p>
+                        And hey. It's a mode. It's <span style= "font-style: italic">optional</span>. I'm not forcing Gary Busey on anyone. If the user doesn't want it they can 
+                        turn it off. And let's say they do want it, and we didn't have it.
+                    </p>
+                    <p>
+                        And no. No one said they wanted this. But whats that famous Henry Ford quote, "If I asked what people wanted, I would have built a faster horse."
+                    </p>
+                `
             break;
         default:
             text = default_content

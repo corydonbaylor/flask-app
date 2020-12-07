@@ -73,6 +73,15 @@
 .btn-toggle.btn-sm.hacker > .handle{
   background-color: #33ff33 !important
 }
+
+/*  gary busey */
+
+.gary_bg{
+  background-image: url('../images/webdev/toggle/gb_tile.png');
+  background-size: auto;
+  margin: auto;
+}
+
 /* Switch code */
 .btn {
   display: inline-block;
