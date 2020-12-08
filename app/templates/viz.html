@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2> Visualizations </h2>
-<p>Taking interesting data and making (somewhat) interesting plots <br>&mdash; typically in ggplot2
-</p>
-<br>
-<div class="row row-cols-1 row-cols-md-3">
+<div class="final-section">
+    <h2> Visualizations </h2>
+    <p>Taking interesting data and making (somewhat) interesting plots <br>&mdash; typically in ggplot2
+    </p>
+    <br>
+    <div class="row row-cols-1 row-cols-md-3">
 
-    {% for card in deck %}
-    <div class="col mb-4">
-        <div class="card h-100">
-            <div class="card-header">{{ card['name'] }}</div>
-            <div class="image-link">
-                <a href="{{url_for(card['link'])}}">
-                    <img class="img-fit" src="{{url_for('static', filename=card['image'])}}"></a>
-            </div>
-            <div class="card-body">
-                <p class="card-text">Learn to make a dotmap with the maps package and gganimate</p>
-            </div>
-            <div class="card-footer bg-transparent cf-custom">
-                <a href="https://github.com/corydonbaylor/covid_dotmap">Github</a>
+        {% for card in deck %}
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-header">{{ card['name'] }}</div>
+                <div class="image-link">
+                    <a href="{{url_for(card['link'])}}">
+                        <img class="img-fit" src="{{url_for('static', filename=card['image'])}}"></a>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Learn to make a dotmap with the maps package and gganimate</p>
+                </div>
+                <div class="card-footer bg-transparent cf-custom">
+                    <a href="https://github.com/corydonbaylor/covid_dotmap">Github</a>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
-
 {% endblock %}

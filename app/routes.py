@@ -7,14 +7,14 @@ from app import app
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Home', color='blues')
+    return render_template('index.html', title='Home', color='blues', pad='p-0')
 
 # analytics routes
 
 
 @app.route('/analytics')
 def analytics():
-    return render_template('analytics.html', title='Analytics', color='greys')
+    return render_template('analytics.html', title='Analytics', color='greys', pad='p-0')
 
 @app.route('/analytics/getwiki')
 def getwiki():
@@ -25,7 +25,7 @@ def getwiki():
 
 @app.route('/webdev')
 def webdev():
-    return render_template('webdev.html', title='Web Dev')
+    return render_template('webdev.html', title='Web Dev', pad ='p-0')
 
 @app.route('/webdev/linux_git')
 def linux_git():
@@ -85,7 +85,7 @@ def viz():
         }
 
     ]
-    return render_template('viz.html', deck=deck, title='Visualizations', color='greens')
+    return render_template('viz.html', deck=deck, title='Visualizations', color='greens', pad='p-0')
 
 
 @app.route('/viz/covid_dotmap')
