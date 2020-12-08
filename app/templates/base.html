@@ -27,7 +27,7 @@
 {% endblock %}
 
 <div class="navbar-custom trans-navbar">
-    <nav class="navbar navbar-expand-lg trans-navbar">
+    <nav class="navbar navbar-expand-lg trans-navbar" id='navbar'>
         {% include 'partials/navbar.html' %}
     </nav>
 </div>
@@ -39,10 +39,15 @@
     <body class="oranges">
         {% endif %}
 
-        <div class="container grad" id='cont'>
-            {% block content %}
-            {% endblock %}
-        </div>
-        <p class='prof-link'><a href="https://github.com/corydonbaylor">Github</a> | <a
-                href="https://www.linkedin.com/in/corydon-baylor-254a4a8b/">LinkedIn</p>
+        {% if pad %}
+        <div class="container grad {{pad}}" id='cont'>
+            {% else %}
+            <div class="container grad" id='cont'>
+                {% endif %}
+
+                {% block content %}
+                {% endblock %}
+            </div>
+            <p class='prof-link'><a href="https://github.com/corydonbaylor">Github</a> | <a
+                    href="https://www.linkedin.com/in/corydon-baylor-254a4a8b/">LinkedIn</p>
     </body>

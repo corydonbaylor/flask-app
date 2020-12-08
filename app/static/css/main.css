@@ -99,6 +99,7 @@ h6 {
     border-radius: 5px;
 }
 
+
 @media only screen and (max-width: 576px) {
     .grad {
         padding:25px;
@@ -167,27 +168,20 @@ Creating Subsections
 
 .first-section{
   border-bottom: 1px solid #dee2e6;
-  padding-bottom: 2rem !important;
+  padding: 3rem 3rem 2rem 3rem;
 }
 
-.hero-section p{
+.hero-section{
   padding-bottom: 1rem !important;
-}
-.hero-section:after {
-  content:"";
-  background: linear-gradient(to right,#747677, #5f6163,#747677);
-  display: block;
-  height:1px;
-  width: 100%;
-  bottom: 0;
+  padding: 3rem 3rem 2rem 3rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 .sub-section{
   border-bottom: 1px solid #dee2e6;
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
+  padding: 2rem 3rem 2rem 3rem;
 }
 
 .final-section{
-  padding-top: 2rem !important;
+  padding: 2rem 3rem 2rem 3rem;
 }
