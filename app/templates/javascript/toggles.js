@@ -5,6 +5,8 @@ function toggle(id, theme) {
     var element = document.getElementById(id)
     // this is the container
     var container = document.getElementById("cont")
+    // this is the navbar
+    var navbar = document.getElementById("navbar")
     // body
     var body = document.body;
 
@@ -30,6 +32,8 @@ function toggle(id, theme) {
         body.classList.add('oranges');
         // take out the container theme
         container.classList.remove(theme)
+        navbar.classList.remove(theme)
+
 
         // otherwise turn it on
     } else {
@@ -44,10 +48,13 @@ function toggle(id, theme) {
         // remove other classes
         body.className = '';
         container.classList.remove(...result) // "..." allows us to remove an array
+        navbar.classList.remove(...result) // "..." allows us to remove an array
 
         // add class
         body.classList.add(theme_bg);
         container.classList.add(theme)
+        navbar.classList.add(theme)
+
     }
 }
 
@@ -81,7 +88,7 @@ function toggle_content(id) {
                         <p>
                             This is back in the 
                             day when all caps was an aesthetic choice, not the work of a psycho. This is back when GREEN DAY was putting out bangers, NEOPETS was 
-                            <span style = 'color:red'>fire</span>, and yahoo was my homepage. Yikes. 
+                            <span style = 'color:red'>fire</span>, and yahoo was my homepage. 
                         </p>
                         </div>
                         <div class = 'col-4'>
