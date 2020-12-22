@@ -69,6 +69,11 @@ def viz():
     deck = [
 
         {
+            'name': 'Joy Plot - Virginia',
+            'image': 'images/viz/joy_plot/joy_plot.png',
+            'link': 'joy_plot'
+        },
+        {
             'name': 'Covid Dotmap',
             'image': 'images/viz/covid-still.PNG',
             'link': 'covid_dotmap'
@@ -86,6 +91,10 @@ def viz():
 
     ]
     return render_template('viz.html', deck=deck, title='Visualizations', color='greens', pad='p-0')
+
+@app.route('/viz/joy_plot')
+def joy_plot():
+    return render_template('/pages/viz/joy_plot.html', title='Joy Plot', color='greens')
 
 
 @app.route('/viz/covid_dotmap')
