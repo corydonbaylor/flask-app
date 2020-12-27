@@ -185,3 +185,10 @@ Creating Subsections
 .final-section{
   padding: 2rem 3rem 2rem 3rem;
 }
+
+.ggplot{
+  color: white;
+  background-color: #71a6d4;
+  padding: 4px 10px;
+  border-radius: 4px;
+}

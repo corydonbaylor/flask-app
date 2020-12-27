@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Sentiment Analysis of Greek Plays</h2>
+<p>
+    This visualization entry is going to be a little different than what I typically post. Usually, I write code that
+    creates stand alone plots, along with a step by step tutorial. This time I decided to create what amounts to a
+    poster. It may not be shocking to hear that ggplot isn't the best tool for graphic designs, even if it is wonderful
+    for graphics.
+</p>
+<p>
+    I would even go as far as to say that this poster is as much about the text as it is about the plots. I first tried
+    to use canva to create the poster but found it to be quite irritating to use. It service uses a freemium model and
+    seems to purposefully handicap the free version. For example, you can't resize the poster. If you want to resize you
+    have to start over, which needless to say, sucks.
+</p>
+<p>
+    To create the final poster, I exported three images from R and pasted them into keynote and then did all the
+    arranging and text work from there.
+</p>
+<p>
+    As far as how the plot was created, you can find a detailed tutorial as part of an upcoming udemy course I am
+    writing on NLP, or if you don't want to pay for that, check out my <a
+        href='https://github.com/corydonbaylor/visualizations'>github</a>.
+</p>
+<p>
+    Without further ado, here's the poster!
+</p>
+<br>
+<img src="{{url_for('static', filename='images/viz/plays/final.png')}}"></img>
+
+
+{% endblock %}
