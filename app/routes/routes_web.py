@@ -2,8 +2,6 @@ from flask import render_template
 from app import app
 
 # web devlopment routes
-
-
 @app.route('/webdev')
 def webdev():
     return render_template('webdev.html', title='Web Dev', pad ='p-0')
