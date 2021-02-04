@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>K Means Clustering</h2>
+<p>You may have heard the term <strong>marketing segmentation</strong> bandied about in meetings and conference calls,
+    and despite knowingly nodding along, you may have wondered, &quot;what exactly are market segments, and where do
+    they come from?&quot; One such method for market segmentation is <strong>k-means clustering</strong> and luckily for
+    you, that&#39;s what this explainer will cover. </p>
+<p>Market segmentation is the process of dividing a largely <strong>heterogenous</strong> population into a number of
+    smaller, <strong>homogenous</strong> populations. When a population is heterogenous, two random observations are
+    unlikely to have much in common. By contrast, two observations in a homogenous population will have a lot in common.
+</p>
+<p>Let&#39;s take a dataset with two variables, age and healthcare spending. Right now, the observations are
+    heterogenous. If you grabbed two of them, then it&#39;s not very likely that you will grab two observations that are
+    young people with low healthcare spending. How can we fix this?</p>
+<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.001.png" referrerpolicy="no-referrer"
+        alt="kmeans.001"></p>
+<p>We could split this into two groups to make the observations more homogenous. There appears to be an older population
+    that spends more on healthcare and a separate younger population that spends less on healthcare. </p>
+<p>If this was split into those two groups, then the observations would be reasonably homogenous. Any given observation
+    within a group would look like reasonably similar to another observation in that group. </p>
+<p>When that is the case, we have something called <strong>intra-cluster similarity</strong>, which we will return to
+    later. </p>
+<p>The question then is, how can we write an algorithm to sort these observations into groups with high intra-cluster
+    similarity?</p>
+<h3>Iterative Centroids </h3>
+<p>Iterative centroids? What a section title! Next time someone smugly throws out the term market segmentation in a
+    meeting, you can fire back, &quot;why don&#39;t we use an iterative centroid approach to do that segmentation?&quot;
+    And then you will be crowned the new king of buzzwords. </p>
+<p>K-means clustering is actually <em>very</em> simple to understand. Its based on splitting your dataset into clusters
+    and iteratively finding the centers of those clusters. As the centroids of the clusters change, the membership of
+    the clusters will change as well, and as the membership of the clusters change, so too do the centroids. This goes
+    on and on until it reaches an equilibrium. </p>
+<p>Let&#39;s walk through an example.</p>
+<p><strong>Step 1 Place Centroids and Assign Groups:</strong> First we assign random points to be our
+    &quot;centroids&quot; (lets stop the buzzword shenanigans and call them centers from now on) and then we assign each
+    observation to a group based on which center it is closer to. So in this example, we randomly put down a red x and a
+    blue x. Then we assigned each dot a color based on which x it was closer to. </p>
+<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.002.png" referrerpolicy="no-referrer"
+        alt="kmeans.002"></p>
+<p><strong>Step 2 Recalculate the Centroids:</strong> Next, you will recalculate the center of each group. For the red
+    group, you are trying to place the x in the center of the four red dots that you see. The same goes for the blue
+    group. The red center will move up and to right because three out of four points are up and to the right. The blue
+    center will barely move because there is an almost even number of points above and below it. </p>
+<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.004.png" referrerpolicy="no-referrer"
+        alt="kmeans.004"></p>
+<p><strong>Step 3 Recalculate the Groups:</strong> Now that we have moved the centers, the closest center for some of
+    these dots will have changed as well. For example, two blue dots will turn red because they are now closer to the
+    red x than the blue x. </p>
+<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.005.png" referrerpolicy="no-referrer"
+        alt="kmeans.006"></p>
+<p><strong>Step 4 - Infinity: Repeat Steps 2 &amp; 3</strong></p>
+<p>Now that the composition of the red and blue group has changed, so too will the centers of those groups. As such, we
+    will need to recalculate the centers again. Once we recalculate the centers, you guessed it, we will need to
+    reassign the groups. We keep doing this until an equilibrium is reach. Once a new center is assigned and none of the
+    dots switch groups, we have found that equilibrium. </p>
+<p>&nbsp;</p>
+<h3>How Many Centers?</h3>
+<p>An important assumption was made at the top here. Can you think of it?</p>
+<p>We are splitting our data into two groups. Where did that two number come from?</p>
+<p>We actually picked this number before we ran our analysis. You need to provide the algorithm with how many groups to
+    divide the population into, and that argument is called the <strong>k number</strong>, which is where the
+    &quot;k&quot; in &quot;k-means&quot; comes from. </p>
+<p>There is a trade off to keep in mind when choosing your k number. The more clusters you have the more likely that
+    observations within a cluster will be similar to each other (<strong>high intra-cluster similarity</strong>), but
+    each cluster will become less distinct from other clusters (<strong>high inter-cluster similarity</strong>). </p>
+<p>We want a scenario with the high intra-cluster similarity and low inter-cluster similarity. </p>
+<p>One way we can find the appropriate k numbers is with an <strong>elbow plot</strong>. Essentially what we will do is
+    run our k-means algorithm a bunch of times (in the above example six times) and then plot the sum of the squared
+    distances of each observation from its group&#39;s center. The sum of squared distances acts as a measure of
+    intra-cluster similarity.</p>
+<p> <img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.009.png" referrerpolicy="no-referrer"
+        alt="kmeans.009"></p>
+<p>So when we only had one group (k = 1), the sum of the squared distances was quite large, and when we had six groups
+    (k = 6), the sum of the squared distances was quite small. Notice how there appears to be some diminishing returns
+    here. Increasing the number of cluster from five to six barely increases the intra-cluster similarity, but since we
+    are adding another group, we are also increasing the inter-cluster similarity. </p>
+<p>You should always choose the number of cluster where you get the most intra-cluster bang for you inter-cluster buck,
+    and that would be where the bend in the curve is, which is also called the elbow of the elbow plot. So in this
+    example, that would mean you set k = 2. </p>
+<p>&nbsp;</p>
+{% endblock %}
