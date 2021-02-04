@@ -13,8 +13,7 @@
 <p>Let&#39;s take a dataset with two variables, age and healthcare spending. Right now, the observations are
     heterogenous. If you grabbed two of them, then it&#39;s not very likely that you will grab two observations that are
     young people with low healthcare spending. How can we fix this?</p>
-<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.001.png" referrerpolicy="no-referrer"
-        alt="kmeans.001"></p>
+<p><img src="{{url_for('static', filename='images/explainers/kmeans/kmeans.001.png')}}" class="img-center"></p>
 <p>We could split this into two groups to make the observations more homogenous. There appears to be an older population
     that spends more on healthcare and a separate younger population that spends less on healthcare. </p>
 <p>If this was split into those two groups, then the observations would be reasonably homogenous. Any given observation
@@ -32,32 +31,39 @@
     the clusters will change as well, and as the membership of the clusters change, so too do the centroids. This goes
     on and on until it reaches an equilibrium. </p>
 <p>Let&#39;s walk through an example.</p>
-<p><strong>Step 1 Place Centroids and Assign Groups:</strong> First we assign random points to be our
-    &quot;centroids&quot; (lets stop the buzzword shenanigans and call them centers from now on) and then we assign each
+<p><strong>Step 1 Place Centroids and Assign Groups:</strong> </p>
+<p>First we assign random points to be our &quot;centroids&quot; (lets stop the buzzword shenanigans and call them
+    centers from now on) and then we assign each
     observation to a group based on which center it is closer to. So in this example, we randomly put down a red x and a
     blue x. Then we assigned each dot a color based on which x it was closer to. </p>
-<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.002.png" referrerpolicy="no-referrer"
-        alt="kmeans.002"></p>
-<p><strong>Step 2 Recalculate the Centroids:</strong> Next, you will recalculate the center of each group. For the red
+<p><img src="{{url_for('static', filename='images/explainers/kmeans/kmeans.002.png')}}">
+    <img src="{{url_for('static', filename='images/explainers/kmeans/kmeans.003.png')}}">
+</p>
+
+<p><strong>Step 2 Recalculate the Centroids:</strong> </p>
+<p>Next, you will recalculate the center of each group. For the red
     group, you are trying to place the x in the center of the four red dots that you see. The same goes for the blue
     group. The red center will move up and to right because three out of four points are up and to the right. The blue
     center will barely move because there is an almost even number of points above and below it. </p>
-<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.004.png" referrerpolicy="no-referrer"
-        alt="kmeans.004"></p>
-<p><strong>Step 3 Recalculate the Groups:</strong> Now that we have moved the centers, the closest center for some of
+<p><img src="{{url_for('static', filename='images/explainers/kmeans/kmeans.004.png')}}" class="img-center"></p>
+<p><strong>Step 3 Recalculate the Groups:</strong></p>
+<p>Now that we have moved the centers, the closest center for some of
     these dots will have changed as well. For example, two blue dots will turn red because they are now closer to the
     red x than the blue x. </p>
-<p><img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.005.png" referrerpolicy="no-referrer"
-        alt="kmeans.006"></p>
+<p><img src="{{url_for('static', filename='images/explainers/kmeans/kmeans.005.png')}}" class="img-center"></p>
+
 <p><strong>Step 4 - Infinity: Repeat Steps 2 &amp; 3</strong></p>
 <p>Now that the composition of the red and blue group has changed, so too will the centers of those groups. As such, we
     will need to recalculate the centers again. Once we recalculate the centers, you guessed it, we will need to
-    reassign the groups. We keep doing this until an equilibrium is reach. Once a new center is assigned and none of the
-    dots switch groups, we have found that equilibrium. </p>
-<p>&nbsp;</p>
+    reassign the groups. We keep doing this until an equilibrium is reached. Once a new center is assigned and none of
+    the dots switch groups, we have found that equilibrium. </p>
+<p>Let's pull it all together and see how changing the centers changes the groups. And how changing the groups changes
+    the centers.</p>
+<p><img src="{{url_for('static', filename='images/explainers/kmeans/kmeans.gif')}}" class="img-center"></p>
+
 <h3>How Many Centers?</h3>
-<p>An important assumption was made at the top here. Can you think of it?</p>
-<p>We are splitting our data into two groups. Where did that two number come from?</p>
+<p>An important assumption was made at the top here. Can you think of it? We are splitting our data into two groups.
+    Where did that two number come from?</p>
 <p>We actually picked this number before we ran our analysis. You need to provide the algorithm with how many groups to
     divide the population into, and that argument is called the <strong>k number</strong>, which is where the
     &quot;k&quot; in &quot;k-means&quot; comes from. </p>
@@ -69,8 +75,8 @@
     run our k-means algorithm a bunch of times (in the above example six times) and then plot the sum of the squared
     distances of each observation from its group&#39;s center. The sum of squared distances acts as a measure of
     intra-cluster similarity.</p>
-<p> <img src="/Users/corydonbaylor/Documents/explainers/kmeans/kmeans.009.png" referrerpolicy="no-referrer"
-        alt="kmeans.009"></p>
+<p><img src="{{url_for('static', filename='images/explainers/kmeans/kmeans.009.png')}}" class="img-center"></p>
+
 <p>So when we only had one group (k = 1), the sum of the squared distances was quite large, and when we had six groups
     (k = 6), the sum of the squared distances was quite small. Notice how there appears to be some diminishing returns
     here. Increasing the number of cluster from five to six barely increases the intra-cluster similarity, but since we

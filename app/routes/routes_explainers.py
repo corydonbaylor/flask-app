@@ -6,8 +6,8 @@ from app import app
 def explainers():
     deck = [
         {
-            'name': 'k-Means Clustering',
-            'image': 'images/explainers/kmeans/kmeans.007.png',
+            'name': 'K-Means Clustering',
+            'image': 'images/explainers/kmeans/kmeans.005.png',
             'link': 'kmeans',
             'text': 'Learn how to complete a market segementation with k-means clustering.'
         }
