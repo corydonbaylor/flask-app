@@ -35,7 +35,6 @@ h6 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 85%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -120,6 +119,10 @@ h6 {
 
 .greys{
     background-image: linear-gradient(80deg, #a3bded 0%, #6991c7 100%)
+}
+
+.purples{
+  background-image: linear-gradient(80deg, #667eea 0%, #764ba2 100%)
 }
 
 /* Skill Icons for homepage*/
