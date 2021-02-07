@@ -9,7 +9,7 @@ def explainers():
             'name': 'Linear Regression',
             'image': 'images/explainers/linear/regression.004.jpg',
             'link': 'linear',
-            'text': 'Learn how to complete a market segementation with k-means clustering.'
+            'text': 'Learn how to make predictions with a trend line'
         },
         {
             'name': 'K-Means Clustering',
