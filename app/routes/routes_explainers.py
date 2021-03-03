@@ -6,6 +6,12 @@ from app import app
 def explainers():
     deck = [
         {
+            'name': 'Hypothesis Testing and p-values',
+            'image': 'images/explainers/p_values/p-values.001.png',
+            'link': 'p_value',
+            'text': 'Measure how unsual an event is with p-values'
+        },
+        {
             'name': 'Linear Regression',
             'image': 'images/explainers/linear/regression.004.jpg',
             'link': 'linear',
@@ -20,6 +26,10 @@ def explainers():
 
     ]
     return render_template('explainers.html', deck=deck, title='Explainers', color='purples', pad='p-0')
+
+@app.route('/explainers/p_value')
+def p_value():
+    return render_template('/pages/explainers/p-values.html', title='p-values', color='purples')
 
 @app.route('/explainers/kmeans')
 def kmeans():
