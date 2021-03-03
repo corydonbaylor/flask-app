@@ -15,43 +15,43 @@
 /* ARGENTINA */
 
   .fireworks{
-    background-image: url('../travel/argentina/fireworks.gif');
+    background-image: url('../images/travel/argentina/fireworks.gif');
   }
 
   .argentina{
-    background-image: url('../travel/argentina/buenos_aires.jpg');
+    background-image: url('../images/travel/argentina/buenos_aires.jpg');
   }
   
   .argentina-building{
-    background-image: url('../travel/argentina/argentina_building.jpg');
+    background-image: url('../images/travel/argentina/argentina_building.jpg');
   }
 
 /* COSTA RICA */
 
   .costa_rica{
-    background-image: url('../travel/costa_rica/irazu.JPG');
+    background-image: url('../images/travel/costa_rica/irazu.JPG');
   }
 
   .costa_rica2{
-    background-image: url('../travel/costa_rica/cartago.jpeg');
+    background-image: url('../images/travel/costa_rica/cartago.jpeg');
   }
 
 /* URUGUAY */
 
   .uruguay{
-    background-image: url('../travel/uruguay/uruguay.jpeg');
+    background-image: url('../images/travel/uruguay/uruguay.jpeg');
   }
 
   .market{
-    background-image: url('../travel/uruguay/market.jpeg');
+    background-image: url('../images/travel/uruguay/market.jpeg');
   }
   
   .old{
-    background-image: url('../travel/uruguay/old.jpeg');
+    background-image: url('../images/travel/uruguay/old.jpeg');
   }
 
   .plates{
-    background-image: url('../travel/uruguay/plates.jpeg');
+    background-image: url('../images/travel/uruguay/plates.jpeg');
   }
 
   .caption{

@@ -47,7 +47,7 @@ def viz():
         }
 
     ]
-    return render_template('viz.html', deck=deck, title='Visualizations', color='greens', pad='p-0')
+    return render_template('/pages/viz/viz.html', deck=deck, title='Visualizations', color='greens', pad='p-0')
 
 @app.route('/viz/plays')
 def plays():

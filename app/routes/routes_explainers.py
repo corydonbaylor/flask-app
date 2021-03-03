@@ -25,7 +25,7 @@ def explainers():
         }
 
     ]
-    return render_template('explainers.html', deck=deck, title='Explainers', color='purples', pad='p-0')
+    return render_template('pages/explainers/explainers.html', deck=deck, title='Explainers', color='purples', pad='p-0')
 
 @app.route('/explainers/p_value')
 def p_value():

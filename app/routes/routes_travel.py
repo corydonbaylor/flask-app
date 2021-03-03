@@ -4,7 +4,7 @@ from app import app
 # travel
 @app.route('/travel')
 def travel():
-    return render_template('travel.html', title='Travel')
+    return render_template('pages/travel/travel.html', title='Travel')
 
 @app.route('/travel/argentina')
 def argentina():
