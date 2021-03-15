@@ -54,6 +54,31 @@
     background-image: url('../images/travel/uruguay/plates.jpeg');
   }
 
+/* HUNGARY */
+
+.budapest{
+  background-image: url('../images/travel/hungary/budapest.jpeg');
+}
+
+.street{
+  background-image: url('../images/travel/hungary/street.jpeg');
+}
+
+.heros{
+  background-image: url('../images/travel/hungary/heros.jpeg');
+}
+
+.town{
+  background-image: url('../images/travel/hungary/town.jpeg');
+}
+
+.baths{
+  background-image: url('../images/travel/hungary/baths.jpeg');
+}
+
+.night{
+  background-image: url('../images/travel/hungary/parliament.gif');
+}
   .caption{
     position: absolute;
     left: 0;
