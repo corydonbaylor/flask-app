@@ -26,6 +26,14 @@
     background-image: url('../images/travel/argentina/argentina_building.jpg');
   }
 
+  .salta{
+    background-image: url('../images/travel/argentina/salta.jpg');
+  }
+
+  .jujuy{
+    background-image: url('../images/travel/argentina/jujuy.jpg');
+  }
+
 /* COSTA RICA */
 
   .costa_rica{
