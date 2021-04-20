@@ -11,7 +11,19 @@
   .travel-blue{
     background: #305e7a;
   }
-  
+ 
+/* SOUTHWEST */
+.southwest{
+  background-image: url('../images/travel/southwest/wallstreet.png');
+} 
+
+.vegas{
+  background-image: url('../images/travel/southwest/vegas.gif');
+} 
+
+.road{
+  background-image: url('../images/travel/southwest/road.jpeg');
+} 
 /* ARGENTINA */
 
   .fireworks{
