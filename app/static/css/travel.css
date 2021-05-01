@@ -165,3 +165,12 @@
     background-size: cover;
     padding-top: 0px !important;
   }
+
+  @media only screen and (max-width: 576px) {
+    .parallax {
+      background-attachment: scroll;
+    }
+    .caption span.border {
+      font-size: 18px;
+    }
+}
