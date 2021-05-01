@@ -10,6 +10,11 @@ $(function () {
     });
 });
 
+function addactive() {
+    if ($(window).scrollTop() < 35) {
+        $('.trans-navbar').toggleClass("active");
+    }
+}
 
 // smooth scrolling
 $(document).ready(function () {
