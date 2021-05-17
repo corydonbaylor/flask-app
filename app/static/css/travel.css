@@ -155,7 +155,60 @@
     line-height: 1.7;
     letter-spacing: 0.03em;
   }
-  
+  .books-con{
+    margin-top: -40px;
+    margin-left: 50px;
+    width: 50%;
+    border: solid 1px black;
+  }
+  .books{
+    color:black;
+    background-color:white;
+    text-align: justify;
+    padding: 20px;
+    font-size: 17px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+  }
+
+  .books h4{
+    color:black;
+    font-weight: bolder;
+  }
+  .other{
+    color:black;
+    background-color:white;
+    text-align: justify;
+    padding: 20px;
+    font-size: 17px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+    width: 45%;
+  }
+
+  .other h4{
+    color:black;
+    font-weight: bolder;
+  }
+
+  @media only screen and (min-width: 992px) and (max-width: 1199px){
+    .books-con {
+      width: 49%;
+    }
+    .other{
+      width: 45%;
+    }
+  }
+  @media only screen and (max-width: 991px) {
+    .books-con{
+      width: 100%;
+      margin-right: 50px;
+    }
+    .other{
+      width: 100%;
+      padding: 50px
+    }
+  }
   @media only screen and (max-width: 576px) {
     .para-tex {
         padding:25px;
