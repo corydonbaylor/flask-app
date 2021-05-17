@@ -1,4 +1,15 @@
 /* Travel */
+.firstcharacter {
+  color: #000;
+  float: left;
+  font-family: 'Galanobold';
+  font-size: 75px;
+  font-weight: bold;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 25px;
+  padding-left: 3px;
+}
 
 .travel-icon{
     background:#3caea3;
@@ -140,6 +151,9 @@
     background-color:white;
     text-align: justify;
     padding: 50px;
+    font-size: 17px;
+    line-height: 1.7;
+    letter-spacing: 0.03em;
   }
   
   @media only screen and (max-width: 576px) {
