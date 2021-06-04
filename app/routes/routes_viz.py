@@ -2,9 +2,19 @@ from flask import render_template
 from app import app
 
 # visualization routes
+
+
 @app.route('/viz')
 def viz():
     deck = [
+        {
+            'name': 'The Day (Rock) Music Died',
+            'image': 'images/viz/rock_small.png',
+            'link': 'rock',
+            'text': 'Rock music has been dying for decades but is now on life support',
+            'tools': 'matplotlib',
+            'tool_type': 'matplotlib'
+        },
         {
             'name': 'Sentiment Analysis of Greek Plays',
             'image': 'images/viz/plays/rex.png',
@@ -49,9 +59,16 @@ def viz():
     ]
     return render_template('/pages/viz/viz.html', deck=deck, title='Visualizations', color='greens', pad='p-0')
 
+
+@app.route('/viz/rock')
+def rock():
+    return render_template('/pages/viz/rock.html', title='Rock', color='greens')
+
+
 @app.route('/viz/plays')
 def plays():
     return render_template('/pages/viz/plays.html', title='Greek Plays', color='greens')
+
 
 @app.route('/viz/joy_plot')
 def joy_plot():
