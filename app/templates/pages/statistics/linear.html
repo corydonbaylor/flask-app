@@ -15,14 +15,14 @@
     notice a very curious pattern. The more comments a video gets, the more views that video will have. </p>
 <p>&nbsp;</p>
 
-<p><img src="{{url_for('static', filename='images/explainers/linear/regression.001.png')}}" class="img-center"></p>
+<p><img src="{{url_for('static', filename='images/statistics/linear/regression.001.png')}}" class="img-center"></p>
 
 <p>Ok maybe this discovery isn&#39;t about to rock the foundations of the YouTube community. But what if you could
     create a trend line that would predict the exact number of views given the number of comments? How would we draw
     such a line. More to the point, what would the slope of that line be?</p>
 <p>Let&#39;s start by just drawing a line whose y value is always the average number of views. We are going to call this
     line the prediction line because the goal of this whole thing is to be able to make predictions with it. </p>
-<p><img src="{{url_for('static', filename='images/explainers/linear/regression.002.png')}}" class="img-center"></p>
+<p><img src="{{url_for('static', filename='images/statistics/linear/regression.002.png')}}" class="img-center"></p>
 
 <p>If we are trying to use this line to predict the number views based on the number of comments, then the difference
     between the prediction line and the actual number of views would be the error. Another term for this is the
@@ -40,14 +40,14 @@
     and (2) we are going to keep track of the sum of the squared residuals. </p>
 <p>Below, on the left panel, you can see how we twist the prediction line, and on the right panel, we plot the sum of
     the squared residuals on a graph. </p>
-<p><img src="{{url_for('static', filename='images/explainers/linear/regression.gif')}}" class="img-center"></p>
+<p><img src="{{url_for('static', filename='images/statistics/linear/regression.gif')}}" class="img-center"></p>
 
 <p>It seems pretty obvious looking at that right panel, that we should stop twisting the prediction line on our third
     iteration, because at that point the sum of the squared residuals is lowest. Easy right?</p>
 <p><em>Not so fast, hotshot.</em></p>
 <p>We are only showing five possible slopes on that graph. But a line can have an infinite number of slopes right?
     Perhaps it&#39;s better to think of that chart as a curve rather than five distinct points.</p>
-<p><img src="{{url_for('static', filename='images/explainers/linear/regression.011.png')}}" class="img-center"></p>
+<p><img src="{{url_for('static', filename='images/statistics/linear/regression.011.png')}}" class="img-center"></p>
 
 <p>Ok, in that case, it&#39;s seems pretty obvious that we should be trying to find the bottom of the curve right?
     Well,
@@ -57,7 +57,7 @@
     slope for each point along the curve and where the slope is equal to zero will be the bottom of the curve. Just
     take
     a look at the below gif for proof. </p>
-<p><img src="{{url_for('static', filename='images/explainers/linear/slope.gif')}}" class="img-center"></p>
+<p><img src="{{url_for('static', filename='images/statistics/linear/slope.gif')}}" class="img-center"></p>
 
 <p>Remember that x axis of our graph corresponds to a slope for our prediction line, which is of course, what
     we&#39;ve
@@ -74,7 +74,7 @@
     the
     x axis and then trace up to the corresponding spot on the y axis. </p>
 
-<p><img src="{{url_for('static', filename='images/explainers/linear/regression.015.png')}}" class="img-center"></p>
+<p><img src="{{url_for('static', filename='images/statistics/linear/regression.015.png')}}" class="img-center"></p>
 
 <p>You may remember from math class the formula, y = mx + b. It&#39;s the same thing here. &quot;b&quot; is the y
     intercept, m is the slope of the line and x is the number of comments. </p>
