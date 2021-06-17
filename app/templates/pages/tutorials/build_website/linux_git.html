@@ -73,7 +73,7 @@
 <p>Next step is to set up a GitHub account. GitHub, believe it or not, is different than git, in the same way that java
     and javascript are different things. If you use git and GitHub interchangeably, than the nerds will mock you and no
     one wants to be mocked by nerds. </p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/git-linux/bazinga.gif')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/git-linux/bazinga.gif')}}">
 
 <p>Bazinga indeed. </p>
 <p>The difference between git and GitHub isn&#39;t just linguistic. Git is the software and GitHub is a service for
@@ -109,31 +109,32 @@
     to add it to your GitHub profile. </p>
 <p>Head over to the settings on the upper right corner of the page. </p>
 <img style='padding: 1rem;'
-    src="{{url_for('static', filename='images/webdev/git-linux/userbar-account-settings.png')}}">
+    src="{{url_for('static', filename='images/tutorials/webdev/git-linux/userbar-account-settings.png')}}">
 
 <p>On the sidebar on the left, click SSH and GPG keys</p>
 <img style='padding: 1rem;'
-    src="{{url_for('static', filename='images/webdev/git-linux/settings-sidebar-ssh-keys.png')}}">
+    src="{{url_for('static', filename='images/tutorials/webdev/git-linux/settings-sidebar-ssh-keys.png')}}">
 
 <p>Then Add SSH Key</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/git-linux/ssh-add-ssh-key.png')}}">
+<img style='padding: 1rem;'
+    src="{{url_for('static', filename='images/tutorials/webdev/git-linux/ssh-add-ssh-key.png')}}">
 
 <p>Then enter your key and information. For the title you can put something like the name and brand of your computer.
     Paste the key into the Key field.</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/git-linux/ssh-key-paste.png')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/git-linux/ssh-key-paste.png')}}">
 
 <p>Follow the rest of the prompts are you are done. </p>
 <p><strong>Creating and Cloning a Git Project</strong></p>
 <p>Now that our computer can interact with GitHub, we need to actually interact with GitHub. On the top left corner of
     your GitHub homepage. Click the button that says &quot;New&quot; to create your first repository.</p>
 <img style='padding: 1rem; max-height: 175px;'
-    src="{{url_for('static', filename='images/webdev/git-linux/git-new.png')}}">
+    src="{{url_for('static', filename='images/tutorials/webdev/git-linux/git-new.png')}}">
 
 <p>Then name your repository something like &quot;My New Website&quot; and initialize with a readme. </p>
 <p>Open up your new repository and click the green button that says &quot;Code&quot; and copy the highlighted text from
     the picture. </p>
 <img style='padding: 1rem; max-height: 250px;'
-    src="{{url_for('static', filename='images/webdev/git-linux/git-code.png')}}">
+    src="{{url_for('static', filename='images/tutorials/webdev/git-linux/git-code.png')}}">
 
 <p>Create a folder in your documents called &quot;github&quot;.</p>
 <p>Right click inside this folder and click &quot;Open Git Bash Here&quot;. Type git clone and what you copied into the
@@ -155,14 +156,16 @@
     project and a history of all the changes to that codebase. These changes are tracked when the user
     <strong>pushes</strong> the work to the repository. Each chunk of code that a user creates is usually tracked in
     something called a <strong>commit</strong>. Each time a coder finishes some code (as coders are wont to do) they
-    will save a snapshot of their codebase in a commit. </p>
+    will save a snapshot of their codebase in a commit.
+</p>
 <p>Imagine you are working in a factory hand making widgets. You finish one widget, and you pack it up in a box. This is
     analogous to writing a chunk of code and <strong>adding</strong> it to a git repository. Next you put that box in a
     truck. This is analogous to creating a <strong>commit</strong>. You do this for a few hours and have ten or so
     widgets in your car. At this point, no one can see your widgets because they are still at the factory. </p>
 <p>So you do the next logical thing and drive your truck to the store and unload your widgets. This is analogous to
     <strong>pushing</strong> your commits to the repo. Commits are you packing your work into the truck and pushing is
-    delivering it. </p>
+    delivering it.
+</p>
 <p>Now lets say you are at a different factory and want to see the latest way widgets are being made. Well you would
     have to drive to the store and check them out. This is analogous to <strong>pulling</strong> code from a repository.
 </p>
@@ -170,7 +173,8 @@
     commits and pushing and pulling for now. </p>
 <p><strong>Testing It Out</strong></p>
 <p>Lets test this out. Open up a text file in notepad or VS Code if you want to feel like a hacker. Write in it
-    <code>test test test</code> and save it as <code>test.txt</code> in your project folder.</p>
+    <code>test test test</code> and save it as <code>test.txt</code> in your project folder.
+</p>
 <p>First we need to pack up our commit by adding it to the project.</p>
 <pre><code>git add test.txt
 </code></pre>

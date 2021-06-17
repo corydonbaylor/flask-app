@@ -42,7 +42,7 @@
 &lt;/html&gt;
 </code></pre>
 <p>If you open up your index.html file in chrome, you will see something like the below:</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/html-css/html-css-1.png')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/html-css/html-css-1.png')}}">
 
 <p>And if you were to right click and press inspect in chrome you will see the html you just wrote!</p>
 <h3>What are HTML Tags?</h3>
@@ -52,7 +52,8 @@
 <p>So surrounding everything is an <code>&lt;html&gt;</code> tag meaning that everything is organized into an
   <em>html</em> section. Within the <code>&lt;html&gt;</code> tags, you will see <code>&lt;head&gt;</code> and
   <code>&lt;body&gt;</code> tags. These divide your html code into the head of the document and the body of the
-  document. </p>
+  document.
+</p>
 <p>The <strong>head</strong> contains the parts of the webpage that are not displayed. Instead it contains things like
   the <code>&lt;title&gt;</code> and links to CSS and javascript. The <strong>body</strong> contains the part of the
   webpage that you can see. Here are some common html tags that you will find within the body:</p>
@@ -106,7 +107,7 @@
 </code></pre>
 <p>Take a look at how we did that link on the second page. To go back a folder, you use <code>..</code>. At this point
   your website should look like this:</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/html-css/html-css-2.png')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/html-css/html-css-2.png')}}">
 
 <h3>Applying CSS Styles</h3>
 <p>Ok, at this point, our website looks admittedly pretty bad. Thats because we have just built the bones (metaphor is
@@ -131,7 +132,7 @@
 &lt;/html&gt;
 </code></pre>
 <p>Our website will now look like this:</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/html-css/html-css-3.png')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/html-css/html-css-3.png')}}">
 
 <p>Interestingly, every tag within a tag will also have that enclosing tag&#39;s styles. This is called
   <strong>inheritance</strong>. The enclosed tag will be called the child tag and the enclosing tag will be called a
@@ -149,7 +150,8 @@
   need to update the shared style sheet rather than all the individual pages.</p>
 <p>We are going to have to work across a few different scripts to make this work. </p>
 <p>First, we will need to create a CSS sheet called <em>style.css</em>, and place it in a new folder called
-  <em>styles</em>. Our file structure should look like this:</p>
+  <em>styles</em>. Our file structure should look like this:
+</p>
 <pre><code>|----index.html
 |---------pages
 |--------------second.html
@@ -165,7 +167,8 @@
 </code></pre>
 <p>We just created our first style! We named it <code>.page-style</code> and gave it two attributes, one for
   <code>background-color</code> and one for <code>color</code>. All we had to do is take the text from within the
-  style argument we wrote earlier and define it as a class. </p>
+  style argument we wrote earlier and define it as a class.
+</p>
 <p><strong>Adding it into the HTML</strong></p>
 <p>Now in our <em>index.html</em>, write the following:</p>
 <pre><code class='language-html' lang='html'>&lt;html&gt;
@@ -197,7 +200,8 @@
 <pre><code class='language-html' lang='html'>  &lt;body class = &quot;page-style&quot;&gt;
 </code></pre>
 <p>The great thing about css classes is that they can be stacked. So if we had a second stack called
-  <em>second-style</em>, we could apply both like so:</p>
+  <em>second-style</em>, we could apply both like so:
+</p>
 <pre><code class='language-html' lang='html'>  &lt;body class = &quot;page-style second-style&quot;&gt;
 </code></pre>
 <p>And there you go! Applying the concepts here will let you create a really good looking static website. </p>

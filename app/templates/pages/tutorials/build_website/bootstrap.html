@@ -70,7 +70,8 @@ large_blue {
     to our HTML elements. Additionally, the container class is often the parent class to many different elements,
     oftentimes to everything you see on the page.</p>
 <p>Let&#39;s add that class to our first div element. Container does not add top padding so we will add a
-    <code>&lt;br&gt;</code> as well. See below for the body of our index.html now:</p>
+    <code>&lt;br&gt;</code> as well. See below for the body of our index.html now:
+</p>
 <pre><code>&lt;body class=&quot;page-style&quot;&gt;
     &lt;div class = &quot;container&quot;&gt;
     		&lt;br&gt;
@@ -85,7 +86,7 @@ large_blue {
 <p><em>Note: If you want to apply the styling to our second page, you will have to be a little careful with file paths.
         This tutorial will just cover styling the homepage. See GitHub for the full code.</em> </p>
 <p>At this point your website should look like this:</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/bootstrap/bootstrap-1.png')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/bootstrap/bootstrap-1.png')}}">
 
 <h3>Creating a Navigation Bar</h3>
 <p>Almost every website has a navigation bar. And you want to fit in, so let&#39;s add one to our website, that way
@@ -105,7 +106,7 @@ large_blue {
     item to add a new link. At this point you will still have to manage all the different file paths between all your
     pages. We will take care of that using flask eventually. </p>
 <p>At this point your website should look like this:</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/bootstrap/bootstrap-2.png')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/bootstrap/bootstrap-2.png')}}">
 
 <p>&nbsp;</p>
 <h3>The Grid System: Rows and Columns</h3>
@@ -120,7 +121,8 @@ large_blue {
 </code></pre>
 <p>First, we need to use the <em>row</em> class to align our three children elements in a row. Then we use the
     <em>col</em> class to put each in a column. We are using the <em>m-2</em> class to add some margins around our
-    columns. (I wrote the <em>examples</em> class to add color, min-width, and height)</p>
+    columns. (I wrote the <em>examples</em> class to add color, min-width, and height)
+</p>
 
 <pre><code>
     .examples {
@@ -148,7 +150,7 @@ large_blue {
 </code></pre>
 <p>Try making the page take less horizontal space. See how the elements will wrap underneath each other? </p>
 <p>At this point your website should look like this:</p>
-<img style='padding: 1rem;' src="{{url_for('static', filename='images/webdev/bootstrap/bootstrap-3.png')}}">
+<img style='padding: 1rem;' src="{{url_for('static', filename='images/tutorials/webdev/bootstrap/bootstrap-3.png')}}">
 
 <h3>More Bootstrap!</h3>
 <p>Bootstrap has a <em>ton</em> of different classes that you can use. It has guides on how to do things like <a
