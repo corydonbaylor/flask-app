@@ -24,6 +24,12 @@ def statistics():
             'image': 'images/statistics/kmeans/kmeans.005.png',
             'link': 'kmeans',
             'text': 'Learn how to complete a market segementation with k-means clustering.'
+        },
+        {
+            'name': 'Classification Tree',
+            'image': 'images/statistics/class_tree/tree.001.png',
+            'link': 'class_tree',
+            'text': 'Build a simple classification tree by hand and determine if someone is a likely emoji user!'
         }
 
     ]
@@ -43,3 +49,8 @@ def kmeans():
 @app.route('/statistics/linear')
 def linear():
     return render_template('/pages/statistics/linear.html', title='k-means', color='purples')
+
+
+@app.route('/statistics/classification_tree')
+def class_tree():
+    return render_template('/pages/statistics/class_tree.html', title='Classification Tree', color='purples')
