@@ -29,7 +29,7 @@ function toggle(id, theme) {
     if (element.classList.contains('active')) {
         // take out all the body themes
         body.className = '';
-        body.classList.add('oranges');
+        body.classList.add('greys');
         // take out the container theme
         container.classList.remove(theme)
         navbar.classList.remove(theme)
