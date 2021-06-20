@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('.static', filename='css/toggles.css')}}">
+<script src="{{url_for('toggle_js')}}"></script>
+
+{% endblock%}
+
+{% block content %}
+<div class="hero-section">
+    <h2>Coding</h2>
+    <p>
+        Side projects, packages, and widgets &mdash; adventures in coding <br>from a public policy student
+    </p>
+</div>
+<div class="sub-section">
+    <h3>Dark Mode Alternatives</h3>
+    <div class="row">
+        <div class="col-sm-3 break-3">
+            <div class="row">
+                <div class="col-8">
+                    <p> Dark Mode </p>
+                </div>
+                <div class='col-4'>
+                    <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                        id='darkmode' onclick='toggle(this.id, "darkmode"); toggle_content(this.id)'>
+                        <div class="handle"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <p> Hacker Mode </p>
+                </div>
+                <div class='col-4'>
+                    <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                        id='hacker' onclick='toggle(this.id, "hacker"); toggle_content(this.id)'>
+                        <div class="handle"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <p> 90's Mode </p>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                        id='ninties' onclick='toggle(this.id, "ninties"); toggle_content(this.id)'>
+                        <div class="handle"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <p> Gary Busey</p>
+                </div>
+                <div class="col-4">
+                    <button class="btn btn-sm btn-toggle" data-toggle="button" aria-pressed="false" autocomplete="off"
+                        id='gary' onclick='toggle(this.id, "gary"); toggle_content(this.id)'>
+                        <div class="handle"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9 break-3" id='toggle_content'>
+            <p>
+                Darkmode is pretty trendy in UI/UX right now&mdash;and for good reason! I oftentimes am working on this
+                website into the wee hours of the morning, and while I love my bright colors, it can feel like staring
+                into
+                the sun when the lights are off.
+            </p>
+            <p>
+                We've come to expect darkmode from websites. But I believe us web designers are capable of so much more!
+            </p>
+            <p>
+                So I would like to purpose a few more potential toggles that I think many will come to see as a
+                necessity.
+            </p>
+        </div>
+    </div>
+</div>
+<div id="getwiki" class="sub-section">
+    <h3>Get Wikipedia Data with getwiki</h3>
+    <div class="d-flex flex-wrap">
+        <div class="very-small-col align-self-center">
+            <a href="{{ url_for('getwiki') }}">
+                <div class="btn" style="border: 0cm;">
+                    <i class="fab fa-wikipedia-w" style="font-size: 3.25rem; padding-right: .5rem;"></i>
+                </div>
+            </a>
+        </div>
+        <div class="very-big-col">
+            <p>Getting Wikipedia data into R can be a breeze with <a href="{{ url_for('getwiki') }}">
+                    getwiki </a>. The purpose of this package is
+                to import
+                Wikipedia articles into R, quickly and easily. <code>getwiki</code> will return articles in a format
+                that plays nice
+                with <code>tidytext</code>, simplifying your NLP workflow. Previously, the easiest way to import the
+                text of a
+                Wikipedia article was to highlight everything and then copy paste it into a character vector. <a
+                    href="https://github.com/corydonbaylor/getwiki">Check out the github page!</a></p>
+
+        </div>
+
+    </div>
+</div>
+<div id="xarigan" class="sub-section">
+    <h3>Automated Deck Building with Xaringan</h3>
+    <div class="d-flex flex-wrap">
+        <div class="small-col align-self-center">
+            <a href="{{url_for('static', filename='coding/xaringan/template.html')}}">
+                <div class="image-link">
+                    <img src="{{url_for('static', filename='images/coding/booz-theme.PNG')}}" style="width:100%;">
+                </div>
+            </a>
+
+        </div>
+        <div class="big-col align-self-center">
+            <p>
+                <strong>Do you hate updating decks each week?</strong>
+            </p>
+            <p>
+                Then automate it using xaringan! The xaringan package extends R Markdown, so that it can create HTML
+                5
+                presentations based
+                on the remark.js framework. Basically, you can create decks with R Markdown. You can
+                inject the results of R code right into the presentation and customize the appearance
+                using CSS. Personally, I have used this technology to automated two weekly decks, saving
+                about one workday's worth of work each week.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

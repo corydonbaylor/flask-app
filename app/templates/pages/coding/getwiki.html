@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Get Wikipedia Data with getwiki</h2>
+<p>Getting Wikipedia data into R can be a breeze with <code>getwiki</code>. The purpose of this package is to import
+    Wikipedia articles into R, quickly and easily. <code>getwiki</code> will return articles in a format that plays nice
+    with <code>tidytext</code>, simplifying your NLP workflow. Previously, the easiest way to import the text of a
+    Wikipedia article was to highlight everything and then copy paste it into a character vector. </p>
+<p>This has the obvious disadvantages of formatting issues and being a manual, tedious process. With
+    <code>getwiki</code> you can simply access Wikipedia using Wikipedia&#39;s API. </p>
+<p>Starting with <code>getwiki</code> is easy. First install it from github using devtools and then load it into your
+    library. </p>
+<pre><code class='language-r' lang='r'>
+# download from github
+devtools::install_github(&quot;corydonbaylor/getwiki&quot;)
+# load into R
+library(getwiki)
+
+</code></pre>
+<h3>Use get_wiki to Import the Text of a Wikipedia Article</h3>
+<p>The first function, <code>get_wiki</code>, will return the matched Wikipedia article based on titles. So if you were
+    to search for France then the function would return the Wikipedia article for France as a string. </p>
+<pre><code class='language-r' lang='r'>
+# will return a character string with the contents of the wikipedia page on France. 
+get_wiki(&quot;France&quot;)
+
+</code></pre>
+<p>If you want to search for more than one article at a time you can! <code>get_wiki()</code> will return multiple
+    articles in a data.frame with one column being the title of the article and the other being the content of the
+    article. Just put the needed items in a character vector. </p>
+<pre><code class='language-r' lang='r'>
+# will return a character string with the contents of the wikipedia page on France. 
+get_wiki(c(&quot;France&quot;, &quot;United States&quot;))
+
+</code></pre>
+<p><code>get_wiki</code> will try to clean out all html tags returned by the API using regex. However, this can be
+    unreliable as there is no simple regex pattern to only match html tags. If you would like to skip this, set
+    <code>clean = FALSE</code>. </p>
+<pre><code class='language-r' lang='r'>
+# this will keep the html tags from the API results
+get_wiki(&quot;France&quot;, clean = FALSE)
+
+</code></pre>
+<h3>Use search_wiki to Return the Top Twenty Results of a Search Term</h3>
+<p>Sometimes you may not be exactly sure what article you are looking for. <code>search_wiki</code> will return the top
+    twenty matching articles based on a search term. So for example if you were to search for United States, you will
+    retun a data.frame with a column for the returned titles and a column with the content of those articles. </p>
+<pre><code class='language-r' lang='r'>
+# this will keep the html tags from the API results
+search_wiki(&quot;United States&quot;)
+
+</code></pre>
+<p><strong>Note that the content article only has the text of the first paragraph of the article.</strong> If you want
+    to return the full text of those articles you will need to use <code>get_wiki</code>. This can be easily
+    accomplished in two lines.</p>
+<pre><code class='language-r' lang='r'>
+# this will keep the html tags from the API results
+us = search_wiki(&quot;United States&quot;)
+
+# this will return the full text of the wikipedia articles
+big_us = get_wiki(us$titles)
+
+</code></pre>
+<h3>Return a Random Article with random_wiki</h3>
+<p>If you would just like to pull in a random article, you can do that as well with <code>random_wiki</code>. This
+    function works exactly the same as <code>get_wiki</code> except you cannot specify the article, and you can only
+    return one article at a time. </p>
+<pre><code class='language-r' lang='r'>
+# returns a random wikipedia article
+random_wiki()
+
+</code></pre>
+<h3>Find Trends for a Wikipedia Article with trend_wiki</h3>
+<p>If you want to find how often a particular page has been viewed, you can use <code>trend_wiki</code>. It will return
+    a data.frame with the page views for the last sixty days. </p>
+<pre><code class='language-r' lang='r'>
+# returns a random wikipedia article
+trend_wiki(&quot;France&quot;)
+
+</code></pre>
+
+{% endblock %}

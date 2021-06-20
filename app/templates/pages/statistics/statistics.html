@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="final-section">
+    <h2> Statistics </h2>
+    <p>Intuitive explanations of how statistics work<br>&mdash; without all the math
+    </p>
+    <br>
+    <div class="row row-cols-1 row-cols-md-3">
+
+        {% for card in deck %}
+        <div class="col mb-4">
+            <div class="card h-100">
+                <div class="card-header">{{ card['name'] }}</div>
+                <div class="image-link">
+                    <a href="{{url_for(card['link'])}}">
+                        <img class="img-fit" src="{{url_for('static', filename=card['image'])}}"></a>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{card['text']}}</p>
+                </div>
+                <div class="card-footer bg-transparent cf-custom">
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

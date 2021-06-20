@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero-section">
+
+    <h2> Tutorials </h2>
+    <p>The best way to learn a topic is to learn how to teach it<br>&mdash; the second best way is to read my tutorials
+    </p>
+</div>
+
+<div class="sub-section">
+    <h3>How to Build a Website</h3>
+    <div class="d-flex flex-wrap">
+        <div class="small-col">
+            {% include 'partials/webdev_toc.html' %}
+        </div>
+        <div class="big-col align-self-center">
+            <p>
+                <strong>Ever wanted to create a website, but didn't know where to start?</strong>
+            </p>
+            <p>
+                Well start here. In this series of tutorials, we will cover how to first build a
+                static website using just HTML and CSS. Then we will add in bootstrap,
+                which is a CSS framework. Then we will cover how to add in a backend using flask.
+                This will make our website signficantly easier to maintain and update.
+                Finally, we will go over how to host your website on a raspberry pi, so
+                that other people can access your website!
+            </p>
+        </div>
+    </div>
+</div>
+<div id='shiny' class='final-section'>
+    <h3>Natural Language Processing in R on Udemy</h3>
+    <div class="d-flex flex-wrap">
+        <div class="very-small-col align-self-center">
+            <div class="btn" style="border: 0cm;">
+                <img src="{{url_for('static', filename='images/coding/chat-double-outline.svg')}}" style="width:100%;">
+            </div>
+        </div>
+        <div class="very-big-col align-self-center">
+            <p> I am happy to announce that my course <a
+                    href="https://www.udemy.com/course/natural-language-processing-in-r-for-beginners/">"Natural
+                    Language Processing in R for Beginners"</a> is published on Udemy! It covers how to import text data
+                into R,
+                how to clean it with packages like tidytext and tm, and how to
+                analyze it with methods like topic modeling and sentiment analysis.
+            <p>
+                Big shout out to Michael Bunting, Caitlin Kennedy, and Hassan Mahmood who co-wrote this course with me!
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

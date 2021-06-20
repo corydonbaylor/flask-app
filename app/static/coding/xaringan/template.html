@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <title>Automated Reports Questions and Answers</title>
+    <meta charset="utf-8" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link rel="stylesheet" href="styling\booz.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: title-slide
+# Automated Reporting &lt;br&gt; Using R
+&lt;div class = "title-img"&gt;
+&lt;img src = "images/booz cover.jpg" width = 34.5%&gt;
+&lt;/div&gt;
+
+---
+
+
+# Table of Contents
+.blue[ **The Five Thousand Foot View**]
+
+*How does this technology work and when can I apply it?*
+
+
+.blue[ **In the Weeds**]
+
+*How do I write the code to create a presentation like this?*
+
+
+.blue[**Zero Button Automation**]
+
+*How can I make reports run on their own and on a schedule?*
+
+---
+class: title-slide
+# The Five Thousand Foot View
+
+---
+# Intro to Markdown
+
+.blue[ **What is Markdown?**]
+
+Markdown creates a .teal[light-weight, static  webpage] through simplified syntax. We can leverage this to create highly customizable reports with the added benefit of .teal[**automation**] and .teal[**extensibility**]. 
+
+
+Automation comes from running chunks of .teal[R code] (or Python, SQL and D3) and the extensibility comes from a custom built .teal[CSS script], which matches the formatting from our powerpoints.
+
+
+.blue[**When should we automate reports?**]
+
+* Routine reports: if it happens more than twice, automate 
+* Reports with lots of data
+* Few icons and non-data related graphics (things like process flows)
+
+---
+# Whats the Business Case
+
+Automation allows .blue[**analytics units**] to focus on .blue[**analytical work**] instead of busy work. By automating the boring stuff, we can increase capacity without increasing workload. 
+
+In other words, if you build it right, you can build a report once and have it update itself after that.
+
+.blue[**How I Use This**]
+
+* Every week, I run .teal[five different reports] in the course of .teal[fifteen minutes]
+* Each report contains many different things that would need to be updated by hand (one contains .teal[47 different elements] I would need to replace each week)
+* Completing these updates would likely take the entire day to complete (if I was working fast)
+* Because we can trust the code, the review process is quick
+
+---
+# How it works
+.center[
+&lt;img src = "images/bonesskinmuscle.png" width = 80%&gt;
+]
+
+* .blue[**HTML**] provides the structure and static parts of the presentation
+* .blue[**R**] provides the brains and muscle, updating the deck with new information
+* .blue[**CSS**] provides the styling and spacing
+
+&lt;div class = "footer"&gt;
+.small[.lightgrey[ The bones, muscle, skin metaphor is a common explantion for web developement, which is essentially what we are doing here!]]
+&lt;/div&gt;
+
+---
+# What do I need to know?
+
+.large[.blue[**Need to Know**]]
+* A little bit of R, enough to clean data or produce a plot
+* What HTML and CSS are (and more importantly where to find more info on them)
+* How markdown works (this is by design very, very simple)
+
+
+.large[.blue[**Good to Know**]]
+* The more R you know, the better!
+* How to write CSS classes and HTML
+* A plotting library like ggplot2 or plotly
+
+
+.large[.blue[**Great to Know**]]
+* How to run SQL from R for true end to end automation
+* A geospatial package like leaflet for mapping
+* XML for greater customization with tables
+
+---
+# What Comes with this Template
+
+This deck not only serves as an introduction to R Markdown and Xaringan but hopefully as a starting point from which to build your own automated decks. While the ultimate output of Xaringan can be as .blue[**self contained as a PDF**], a zip file with the following will be included:
+* A commented .blue[**markdown file**] with all the R code needed to produce this deck
+* An extensible (and commented) .blue[**CSS file**] that contains custom classes used to style and position elements
+* An organized and simple .blue[**directory structure**] to keep everything organized
+
+While you are welcome to start from scratch, I would recommend simply .blue[**copy pasting**] this folder each time and editting the rmd file to make new decks.
+
+---
+class: title-slide
+# In the Weeds
+
+---
+# Stylizing Your Document
+
+Adding custom spacing and styles is key to creating a professional looking deck. 
+
+All styling is handled by CSS classes. This is the same technology that powers the look and feel of webpages. So if you could do it on a webpage, you can do it here (mostly).
+
+In the styling folder, you will find custom.css which creates
+
+Lets walk through an example:
+.pull-left[
+```{}
+/* In your CSS File */
+.blue{
+  color: #305496;
+}
+
+.large {
+  font-size: 110%;
+  }
+
+```
+
+```{}
+/* In your Markdown File */
+.blue[
+  .large[
+This is how you apply color 
+and size to some text.
+  ]]
+```
+]
+
+.pull-right[
+
+.blue[
+  .large[
+This is how you apply color 
+and size to some text.
+  ]]
+  
+  ]
+  
+---
+# Positioning an Item
+
+Admittedly, powerpoint is much better at allowing users to quickly and easily fine tune the position of an element on a slide. 
+
+With markdown, you can achieve all the same effects, but it will likely involve some trial and error.
+
+Lets say we want something pulled to the right and centered horizontally and veritically.
+
+.pull-left[
+
+```{}
+/* In your Markdown File */
+
+.pull-right[
+  .center[
+  &lt;div style= 'margin-top: 45%'&gt;
+    I am centered
+  &lt;/div&gt;
+]]
+
+```
+]
+
+.pull-right[
+  .center[
+  &lt;div style= 'margin-top: 45%'&gt;
+    I am centered
+  &lt;/div&gt;
+]]
+
+---
+# Creating Tables
+
+.large[.blue[**Tables can be used for data or positioning**]]
+
+
+.more-left[
+
+```r
+library(knitr)
+library(kableExtra)
+data = read.csv("data/states.csv")[,1:4]
+
+kable(head(data), 
+        format.args = list(big.mark = ","))%&gt;%
+  kable_styling(font_size = 12)
+```
+
+
+```r
+# creating a function that outputs html code
+html_print = function(html) {
+    structure(html, class='knit_asis')
+}
+
+# creating a custom table 
+html_print(
+  paste0("
+&lt;div&gt;
+&lt;span class = 'verylarge'&gt; 
+&lt;span style = 'color:green'&gt; \u25B2 &lt;/span&gt;", 
+      data$Change[49],"%&lt;/span&gt;
+&lt;table align = 'center'&gt;
+  &lt;tr class = 'title_row', style = 'text-align:center'&gt;
+    &lt;th&gt;", format(data[49,3], big.mark = ","), "&lt;/th&gt;
+    &lt;th&gt;&lt;span style = 'color: #0e6c91; font-weight: 900'&gt; 
+    \u25B6 &lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;", format(data[49,2], big.mark = ","),  "&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr class = 'note_row'&gt;
+    &lt;th style = 'text-align:center'&gt; Pop. 2010 &lt;/th&gt;
+    &lt;th&gt; &lt;/th&gt;
+    &lt;th style = 'text-align:center'&gt; Pop. 2018 &lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+"))
+```
+]
+
+.less-right[
+&lt;table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Population.2018 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Population.2010 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Change &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; California &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 39,557,045 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 37,254,523 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Texas &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28,701,845 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25,145,561 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14.1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Florida &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 21,299,325 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18,801,310 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; New York &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19,542,209 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19,378,102 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pennsylvania &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,807,060 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,702,379 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Illinois &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,741,080 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,830,632 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.7 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;br&gt;
+.center[
+&lt;div&gt;
+.lightgrey[.medium[District of Columbia]]&lt;br&gt;
+
+&lt;div&gt;
+&lt;span class = 'verylarge'&gt; 
+&lt;span style = 'color:green'&gt; ▲ &lt;/span&gt;16.7%&lt;/span&gt;
+&lt;table align = 'center'&gt;
+  &lt;tr class = 'title_row', style = 'text-align:center'&gt;
+    &lt;th&gt;601,723&lt;/th&gt;
+    &lt;th&gt;&lt;span style = 'color: #0e6c91; font-weight: 900'&gt; 
+    ▶ &lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;702,455&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr class = 'note_row'&gt;
+    &lt;th style = 'text-align:center'&gt; Pop. 2010 &lt;/th&gt;
+    &lt;th&gt; &lt;/th&gt;
+    &lt;th style = 'text-align:center'&gt; Pop. 2018 &lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+]
+&lt;br&gt;
+.medium[*Use custom HTML to produce hard to space elements*]
+
+]
+
+---
+# Creating Plots
+
+.blue[**Creating plots is super easy with ggplot2**]
+
+* Chunks of code are written (see on the left)
+* Those chunks are evaulated and the results returned (on the right)
+* As data updates, the plots will update as well!
+
+.pull-left[
+
+```r
+library(ggplot2)
+data = USArrests%&gt;%
+  mutate(
+    State = state.abb[match(row.names(USArrests),
+                            state.name)],
+    labels = paste0(State, ": ", UrbanPop)  
+      )
+  
+data$id = seq(1:50) # creating an id
+angle &lt;-  90 - 360 * (data$id-0.5) /50
+data$hjust&lt;-ifelse( angle &lt; -90, 1, 0)
+data$angle&lt;-ifelse(angle &lt; -90, angle+180, angle)
+ 
+# Make the plot
+ggplot(data, aes(x=as.factor(id), y=UrbanPop)) +
+  geom_bar(stat="identity", fill="#096a90") +
+  ylim(-100,120) +
+  theme_minimal() +
+  theme(
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    panel.grid = element_blank(),
+    plot.margin = unit(rep(-2,4), "cm") 
+  ) +
+  coord_polar(start = 0)+
+  geom_text(data=data, 
+        aes(x=id, y=UrbanPop+10, 
+            label=labels, hjust=hjust), 
+        color="black", fontface="bold",
+        alpha=0.6, size=2.5, 
+        angle= data$angle, 
+        inherit.aes = FALSE )
+```
+]
+.pull-right[
+![](template_files/figure-html/plot-label-out-1.png)&lt;!-- --&gt;
+]
+
+&lt;div class = "footer"&gt;
+.small[.lightgrey[Tutorial for circular barplot can be found [here](https://www.r-graph-gallery.com/296-add-labels-to-circular-barplot.html)]]
+&lt;/div&gt;
+
+---
+# Pulling It All Together
+
+.blue[***Creating professional slides that automatically update is easy with R Markdown***]
+.pull-left[
+![](template_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
+]
+
+.pull-right[
+&lt;br&gt;
+.center[
+&lt;div&gt;
+.lightgrey[.medium[District of Columbia]]&lt;br&gt;
+
+&lt;div&gt;
+&lt;span class = 'verylarge'&gt; 
+&lt;span style = 'color:green'&gt; ▲ &lt;/span&gt;16.7%&lt;/span&gt;
+&lt;table align = 'center'&gt;
+  &lt;tr class = 'title_row', style = 'text-align:center'&gt;
+    &lt;th&gt;601,723&lt;/th&gt;
+    &lt;th&gt;&lt;span style = 'color: #0e6c91; font-weight: 900'&gt; 
+    ▶ &lt;/span&gt;&lt;/th&gt;
+    &lt;th&gt;702,455&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr class = 'note_row'&gt;
+    &lt;th style = 'text-align:center'&gt; Pop. 2010 &lt;/th&gt;
+    &lt;th&gt; &lt;/th&gt;
+    &lt;th style = 'text-align:center'&gt; Pop. 2018 &lt;/th&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+]
+&lt;br&gt;
+&lt;br&gt;
+&lt;table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Population.2018 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Population.2010 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Change &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; California &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 39,557,045 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 37,254,523 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Texas &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28,701,845 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 25,145,561 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14.1 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Florida &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 21,299,325 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18,801,310 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.3 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; New York &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19,542,209 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19,378,102 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Pennsylvania &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,807,060 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,702,379 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Illinois &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,741,080 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12,830,632 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.7 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+]
+---
+class: title-slide
+# Zero Button Automation
+
+---
+# What is Zero Button Automation
+
+So far what we have shown will still require the analyst to open up R Studio and run the report. What if we could have the report run .blue[**automatically**] on a schedule so that we only need to look at the results and email it?
+
+Luckily we can with .blue[**pagedown**] and .blue[**windows schedular**]! 
+&lt;br&gt;
+&lt;br&gt;
+&lt;div style = "background-color: #f8f8f8; padding: 20px"&gt;
+
+
+.blue[**Bonus Automation!**]&lt;br&gt;&lt;br&gt;
+
+Because deck building is most likely the most complicated process to automate, this presentation is geared towards that. However, within the provided zip folder, in .blue["automation examples"], I've included quick examples on how to automate the following:
+
+&lt;ul&gt;
+&lt;li&gt; Excel Workbooks &lt;/li&gt;
+&lt;li&gt; Markdown One Pagers &lt;/li&gt;
+&lt;li&gt; Tabbed Markdown Documents &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+
+---
+# Pagedown or Printing Directly to a PDF
+
+The biggest compliant I have with .blue[**xarigan**] is that you cannot really email it. Instead you have to open up the html file and print it out as a PDF. 
+
+Fortunately, the creator of xarigan also created a companion package called .blue[**pagedown**] which runs your markdown file, opens the resulting html file, and using a headless (or invisible) chrome brower, print it to a pdf. 
+
+Included in this template is a file called ".blue[**automation_helper.R**]" Let's see what this looks like:
+
+```r
+## automatic printing
+setwd("PATH TO MARKDOWN FILE")
+library(pagedown)
+
+Sys.setenv(RSTUDIO_PANDOC = "C:/Program Files/RStudio/bin/pandoc")
+
+chrome_print("template.Rmd", 
+             browser = "PATH TO CHROME BROWSER",
+             output = paste0("outputs/template_", Sys.Date(), ".pdf"))
+```
+---
+# Editing automation_helper.R
+There are a couple minor tweaks, all having to do with directories, you will need to make here:
+
+* You will need to set the working directory to wherever your .rmd file is
+
+* You will need to find an up to date version of pandoc. See the code below:
+
+```r
+# This command will show you where pandoc is
+Sys.getenv("RSTUDIO_PANDOC")
+
+# And this command will make sure that version is used
+Sys.setenv(RSTUDIO_PANDOC = "FILE LOCATION GOES HERE")
+
+# So, in case this isnt clear, use Sys.getenv() to get the LOCATION of pandoc
+# and paste that into the second command like so:
+Sys.setenv(RSTUDIO_PANDOC = "C:/Program Files/RStudio/bin/pandoc")
+```
+
+* You will need to point the brower argument to the .exe for chrome
+
+For me, chrome was listed as a program in the local folder within AppData. This is a hidden folder, so I will put an example path below:
+
+
+```r
+C:\Users\&lt;&lt;USER NAME&gt;&gt;\AppData\Local\Google\Chrome\Application\chrome.exe
+```
+---
+# Windows Schedular 
+
+
+.blue[**From One Button to Zero Button**]
+Now that we have created a normal R Script that can create our deck, we can schedule it to run using .blue[**Windows Schedular**]. Windows Schedular is an accessory program that comes with most installations of Windows.
+
+* Type in "Windows Schedular" into the search bar
+* Click "Action" &gt; "Create Task"
+
+.center[
+&lt;img src = "images/task_schedular.PNG" width = 90%&gt;
+]
+---
+# Creating an Action
+&lt;div&gt;
+.pull-left[
+* Under the .blue["Actions"] tab, put the path to .blue["Rscript.exe"] (in quotes) from the bin folder of your RStudio installation in the .blue["Program Script"] field
+
+
+* Under the .blue["Add arguments (optional):"], add the path to your R Script in quotes and click .blue["OK"]
+
+
+* Finally, under the .blue["Triggers"] tab, click the days and time you would like your script to be run!
+]
+
+.pull-right[
+.center[
+&lt;img src = "images/action.PNG" width = 90%&gt;
+]
+]
+&lt;/div&gt;
+&lt;div style = "position: absolute; bottom: 12%; margin-right: 80px"&gt;
+The paths for both the Rscript.exe and for the automation_helper.R can be found in the "automation_examples" folder within the provided zip document. 
+&lt;/div&gt;
+---
+# Resources
+.medium[
+***.blue[The Core Technology]***
+* [R Markdown](https://bookdown.org/yihui/rmarkdown/) - knitting HTML, CSS and R together
+* [Xaringan](https://github.com/yihui/xaringan/wiki) - R wrapper for remark.js deck framework
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - the "skin" of the deck
+* [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - the "bones" of the deck
+
+***.blue[Loading Data into R]***
+* [openxlsx](https://rdrr.io/cran/openxlsx/#vignettes) - loading (and writing) data from .xlsx documents
+* [RODBC](https://www.rdocumentation.org/packages/RODBC/versions/1.3-16) - creating a connection to a SQL server
+* [jsonlite](https://cran.r-project.org/web/packages/jsonlite/vignettes/json-aaquickstart.html) - querying json objects in R
+
+***.blue[Cleaning Data in R]***
+* [tidyverse](https://rstudio.com/resources/cheatsheets/) - all you need to know to manipulate data
+* [data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html) - a quicker way to manipulate data
+
+***.blue[Presenting Data in R]***
+* [kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html) - generating and stylizing tables
+* [ggplot2](http://www.cookbook-r.com/Graphs/) - creating plots in R
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
