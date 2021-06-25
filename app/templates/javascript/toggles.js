@@ -92,7 +92,7 @@ function toggle_content(id) {
                         </p>
                         </div>
                         <div class = 'col-4'>
-                            <img src = "{{url_for('static', filename='images/webdev/toggle/dancing_baby.gif')}}">
+                            <img src = "{{url_for('static', filename='images/coding/toggle/dancing_baby.gif')}}">
                         </div>
                     </div>
                     `
