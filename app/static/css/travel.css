@@ -50,7 +50,9 @@
 .valley {
   background-image: url("../images/travel/southwest/valley.jpeg");
 }
-
+.cliff {
+  background-image: url("../images/travel/southwest/cliff.jpeg");
+}
 .sanjuan {
   background-image: url("../images/travel/southwest/sanjuan.jpeg");
 }
