@@ -2,7 +2,7 @@
 .firstcharacter {
   color: #000;
   float: left;
-  font-family: 'Galanobold';
+  font-family: "Galanobold";
   font-size: 75px;
   font-weight: bold;
   line-height: 60px;
@@ -11,248 +11,249 @@
   padding-left: 3px;
 }
 
-.travel-icon{
-    background:#3caea3;
-    color: white;
-    padding:20px;
-    text-align: center;
-    margin: 10px !important;
-  }
-  
-  .travel-blue{
-    background: #305e7a;
-  }
- 
+.travel-icon {
+  background: #3caea3;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin: 10px !important;
+}
+
+.travel-blue {
+  background: #305e7a;
+}
+
 /* SOUTHWEST */
-.southwest{
-  background-image: url('../images/travel/southwest/wallstreet.png');
-} 
+.southwest {
+  background-image: url("../images/travel/southwest/wallstreet.png");
+}
 
-.vegas{
-  background-image: url('../images/travel/southwest/vegas.gif');
-} 
+.vegas {
+  background-image: url("../images/travel/southwest/vegas.gif");
+}
 
-.road{
-  background-image: url('../images/travel/southwest/road.jpeg');
-} 
+.road {
+  background-image: url("../images/travel/southwest/road.jpeg");
+}
 
-.zion{
-  background-image: url('../images/travel/southwest/zion.jpeg');
-} 
+.zion {
+  background-image: url("../images/travel/southwest/zion.jpeg");
+}
 
-.bryce{
-  background-image: url('../images/travel/southwest/bryce.jpeg');
-} 
+.bryce {
+  background-image: url("../images/travel/southwest/bryce.jpeg");
+}
 
-.valley{
-  background-image: url('../images/travel/southwest/valley.jpeg');
-} 
+.valley {
+  background-image: url("../images/travel/southwest/valley.jpeg");
+}
 
-.sanjuan{
-  background-image: url('../images/travel/southwest/sanjuan.jpeg');
+.sanjuan {
+  background-image: url("../images/travel/southwest/sanjuan.jpeg");
+}
 
+.dunes {
+  background-image: url("../images/travel/southwest/dunes.gif");
 }
 /* ARGENTINA */
 
-  .fireworks{
-    background-image: url('../images/travel/argentina/fireworks.gif');
-  }
+.fireworks {
+  background-image: url("../images/travel/argentina/fireworks.gif");
+}
 
-  .argentina{
-    background-image: url('../images/travel/argentina/buenos_aires.jpg');
-  }
-  
-  .argentina-building{
-    background-image: url('../images/travel/argentina/argentina_building.jpg');
-  }
+.argentina {
+  background-image: url("../images/travel/argentina/buenos_aires.jpg");
+}
 
-  .salta{
-    background-image: url('../images/travel/argentina/salta.jpg');
-  }
+.argentina-building {
+  background-image: url("../images/travel/argentina/argentina_building.jpg");
+}
 
-  .jujuy{
-    background-image: url('../images/travel/argentina/jujuy.jpg');
-  }
+.salta {
+  background-image: url("../images/travel/argentina/salta.jpg");
+}
+
+.jujuy {
+  background-image: url("../images/travel/argentina/jujuy.jpg");
+}
 
 /* COSTA RICA */
 
-  .costa_rica{
-    background-image: url('../images/travel/costa_rica/irazu.JPG');
-  }
+.costa_rica {
+  background-image: url("../images/travel/costa_rica/irazu.JPG");
+}
 
-  .costa_rica2{
-    background-image: url('../images/travel/costa_rica/cartago.jpeg');
-  }
+.costa_rica2 {
+  background-image: url("../images/travel/costa_rica/cartago.jpeg");
+}
 
 /* URUGUAY */
 
-  .uruguay{
-    background-image: url('../images/travel/uruguay/uruguay.jpeg');
-  }
+.uruguay {
+  background-image: url("../images/travel/uruguay/uruguay.jpeg");
+}
 
-  .market{
-    background-image: url('../images/travel/uruguay/market.jpeg');
-  }
-  
-  .old{
-    background-image: url('../images/travel/uruguay/old.jpeg');
-  }
+.market {
+  background-image: url("../images/travel/uruguay/market.jpeg");
+}
 
-  .colonia{
-    background-image: url('../images/travel/uruguay/colonia.jpg');
-  }
+.old {
+  background-image: url("../images/travel/uruguay/old.jpeg");
+}
 
-  .plates{
-    background-image: url('../images/travel/uruguay/plates.jpeg');
-  }
+.colonia {
+  background-image: url("../images/travel/uruguay/colonia.jpg");
+}
 
-
+.plates {
+  background-image: url("../images/travel/uruguay/plates.jpeg");
+}
 
 /* HUNGARY */
 
-.budapest{
-  background-image: url('../images/travel/hungary/budapest.jpeg');
+.budapest {
+  background-image: url("../images/travel/hungary/budapest.jpeg");
 }
 
-.street{
-  background-image: url('../images/travel/hungary/street.jpeg');
+.street {
+  background-image: url("../images/travel/hungary/street.jpeg");
 }
 
-.heros{
-  background-image: url('../images/travel/hungary/heros.jpeg');
+.heros {
+  background-image: url("../images/travel/hungary/heros.jpeg");
 }
 
-.town{
-  background-image: url('../images/travel/hungary/town.jpeg');
+.town {
+  background-image: url("../images/travel/hungary/town.jpeg");
 }
 
-.baths{
-  background-image: url('../images/travel/hungary/baths.jpeg');
+.baths {
+  background-image: url("../images/travel/hungary/baths.jpeg");
 }
 
-.night{
-  background-image: url('../images/travel/hungary/parliament.gif');
+.night {
+  background-image: url("../images/travel/hungary/parliament.gif");
 }
-  .caption{
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    color: #000;
-    border:none !important;
-  }
-  
-  .caption span.border {
-    background-color: #111;
-    color: #fff;
-    padding: 18px;
-    font-size: 25px;
-    font-style: italic;
-    letter-spacing: 10px;
-  }
-  
-  .para-tex{
-    color:black;
-    background-color:white;
-    text-align: justify;
-    padding: 50px;
-    font-size: 17px;
-    line-height: 1.7;
-    letter-spacing: 0.03em;
-  }
-  .books-con{
-    margin-top: -40px;
-    margin-left: 50px;
-    width: 50%;
-    border: solid 1px black;
-  }
-  .books{
-    color:black;
-    background-color:white;
-    text-align: justify;
-    padding: 20px;
-    font-size: 17px;
-    line-height: 1.7;
-    letter-spacing: 0.03em;
-  }
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  border: none !important;
+}
 
-  .books h4{
-    color:black;
-    font-weight: bolder;
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 25px;
+  font-style: italic;
+  letter-spacing: 10px;
+}
+
+.para-tex {
+  color: black;
+  background-color: white;
+  text-align: justify;
+  padding: 50px;
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+.books-con {
+  margin-top: -40px;
+  margin-left: 50px;
+  width: 50%;
+  border: solid 1px black;
+}
+.books {
+  color: black;
+  background-color: white;
+  text-align: justify;
+  padding: 20px;
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+
+.books h4 {
+  color: black;
+  font-weight: bolder;
+}
+.other {
+  color: black;
+  background-color: white;
+  text-align: justify;
+  padding: 20px;
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+  width: 45%;
+}
+
+.other h4 {
+  color: black;
+  font-weight: bolder;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .books-con {
+    width: 49%;
   }
-  .other{
-    color:black;
-    background-color:white;
-    text-align: justify;
-    padding: 20px;
-    font-size: 17px;
-    line-height: 1.7;
-    letter-spacing: 0.03em;
+  .other {
     width: 45%;
   }
-
-  .other h4{
-    color:black;
-    font-weight: bolder;
+}
+@media only screen and (max-width: 991px) {
+  .books-con {
+    width: 100%;
+    margin-right: 50px;
   }
-
-  @media only screen and (min-width: 992px) and (max-width: 1199px){
-    .books-con {
-      width: 49%;
-    }
-    .other{
-      width: 45%;
-    }
+  .other {
+    width: 100%;
+    padding: 50px;
   }
-  @media only screen and (max-width: 991px) {
-    .books-con{
-      width: 100%;
-      margin-right: 50px;
-    }
-    .other{
-      width: 100%;
-      padding: 50px
-    }
+}
+@media only screen and (max-width: 576px) {
+  .para-tex {
+    padding: 25px;
   }
-  @media only screen and (max-width: 576px) {
-    .para-tex {
-        padding:25px;
-    }
 }
 
-  .travel-article{
-    height:300px;
-  }
-  
-  @media only screen and (max-width: 576px) {
-    .travel-article {
-        height: 150px;
-    }
+.travel-article {
+  height: 300px;
 }
-  .travel-title{
-    height:150px;
-  }
-  
-  .travel-title:hover {
-    opacity: 1;
-  }
-  
-  .parallax{
-    position: relative;
-    opacity: .8;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 0px !important;
-  }
 
-  @media only screen and (max-width: 576px) {
-    .parallax {
-      background-attachment: scroll;
-    }
-    .caption span.border {
-      font-size: 18px;
-    }
+@media only screen and (max-width: 576px) {
+  .travel-article {
+    height: 150px;
+  }
+}
+.travel-title {
+  height: 150px;
+}
+
+.travel-title:hover {
+  opacity: 1;
+}
+
+.parallax {
+  position: relative;
+  opacity: 0.8;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 0px !important;
+}
+
+@media only screen and (max-width: 576px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+  .caption span.border {
+    font-size: 18px;
+  }
 }
