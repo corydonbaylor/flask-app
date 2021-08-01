@@ -80,6 +80,9 @@ static domain_name_servers=192.168.0.1
 <p>Give your machine a reboot with the <code>reboot</code> command and then check its IP address with
     <code>hostname -I</code> again to make sure it hasn&#39;t changed. If you have done this successfully, you will
     now be able to SSH into your machine using your IP address with the following command:</p>
+<p>
+    Next you need to enable SSH on your raspberrypi. To do that, open the preferences menu, click over to interfaces, and then select "Enable" next to SSH.
+</p>
 <pre><code>ssh pi@ip.address
 </code></pre>
 <p>You will be prompted for a password, which will be whatever you entered when setting up the machine. The above

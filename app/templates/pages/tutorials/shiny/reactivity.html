@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>I&#39;ve spent about five years professionally coding R Shiny apps for clients. Every so often, someone will ask me
+    what the best resource is to learn how to code in Shiny. I usually point them to <a
+        href='https://deanattali.com/blog/building-shiny-apps-tutorial/'>Dean Attali&#39;s tutorial</a> on the subject
+    since that is how I first learned. My goal here will be to create an even better tutorial series (if that is
+    possible, his is seriously good.)</p>
+<p>I would venture a guess to say that building an app in R Shiny is the easiest way to code an interactive app. Period.
+    Almost everything that is difficult is abstracted away, and there is nearly no boilerplate. </p>
+<p>In this tutorial, we are going to cover how reactivity works as well as build our first app. This tutorial series
+    assumes you are familiar enough with R and the <code>tidyverse</code> set of packages.</p>
+<h3>Our First App</h3>
+<p>To keep it absurdly simple, we are going to create a blank shiny app and then add in some basics. Make sure you have
+    the <code>shiny</code> package actually installed and loaded before we start.</p>
+<p>To create an app, lets create a file called &quot;app.R&quot; (<strong><em>and it MUST be called app.R</em></strong>)
+    and insert the following code:</p>
+<pre><code>library(shiny)
+
+# a function to create the UI
+ui &lt;- fluidPage()
+
+# a function to create the server
+server &lt;- function(input, output) {}
+
+# a function to create the app (using the server and ui we just created)
+shinyApp(ui = ui, server = server)
+</code></pre>
+<p>There are two objects to note here: <code>ui</code> and <code>server</code>. </p>
+<p>The <code>ui</code> object can be thought of as all the bits of the app that the user can see, and the
+    <code>server</code> object (which is really a function) can be thought as what determines how the app reacts to user
+    input. The server houses all the logic of the app. In many ways, <em>it is the app</em> and the UI is just window
+    dressing.
+</p>
+<p>The <code>shinyApp()</code> function actually creates the app using what you made in <code>ui</code> and
+    <code>server</code>.
+</p>
+<h3>Adding Some Components </h3>
+<p>Right now, if you were to click the &quot;Run App&quot; button at the top right of R Studio, the app would run but it
+    would be a blank screen! That&#39;s obviously no good, so let&#39;s add some code to the UI, so we can actually see
+    something. </p>
+<pre><code>library(shiny)
+
+# a function to create the UI
+ui &lt;- fluidPage(
+    h3(&quot;The Titanic!&quot;),
+    selectInput(inputId = &quot;class&quot;, label = &quot;Passengar Class&quot;, choices = c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;Crew&quot;))
+)
+
+# a function to create the server
+server &lt;- function(input, output) {}
+
+# a function to create the app (using the server and ui we just created)
+shinyApp(ui = ui, server = server)
+</code></pre>
+<p>Now when you run your app, you should see the following:</p>
+<p><img src="{{url_for('static', filename='images/tutorials/shiny/reactivity/shiny-1.png')}}" class="img-center"></p>
+
+<p>Very cool, but still, it doesn&#39;t really do anything. You can click the drop down now and toggle through the
+    different classes. But again, whatever class you pick doesn&#39;t impact your app at all.</p>
+<p>Let&#39;s change that (in the most boring way possible).</p>
+<p>First the code:</p>
+<pre><code>library(shiny)
+
+# a function to create the UI
+ui &lt;- fluidPage(
+    h3(&quot;The Titanic!&quot;),
+    selectInput(inputId = &quot;class&quot;, label = &quot;Passengar Class&quot;, choices = c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;Crew&quot;))
+)
+
+# a function to create the server
+server &lt;- function(input, output) {
+    
+    # I watch to see if input$class changes
+    # and rerun if it does
+    observe({
+        print(input$class)
+    })
+    
+}
+
+# a function to create the app (using the server and ui we just created)
+shinyApp(ui = ui, server = server)
+</code></pre>
+<p>Then what it does:</p>
+<p><img src="{{url_for('static', filename='images/tutorials/shiny/reactivity/shiny-2.gif')}}" class="img-center"></p>
+
+<p>Notice how what is printed to the console changes each time we change the passenger class? That&#39;s reactivity in
+    action! </p>
+<p>The next portion of this tutorial is going to be the most important part of the whole series. If you can get a good
+    working handle on reactivity, then you understand shiny. The rest of this will essentially just be tips and tricks,
+    albeit important and substantial ones, to make your app ready for a professional client.</p>
+<h3>Reactivity </h3>
+<p>Shiny works using functions called <strong>reactive contexts</strong>. Reactive contexts have an important component
+    to them: <strong>reactive variables</strong>. Currently we have one reactive context and one reactive variable.</p>
+<pre><code>    observe({
+        print(input$class)
+    })
+</code></pre>
+<p>Reactive contexts &quot;watch&quot; reactive variables, and if that value changes, then the whole function reruns. In
+    this example, the <code>observe({})</code> function is the reactive context, and it is watching the
+    <code>input$class</code> reactive variable.
+</p>
+<p>Once the value of<code>input$class</code> changes, everything within that <code>observe({})</code> will rerun. Each
+    time the user selects something different in the drop down, <code>input$class</code> changes causing everything in
+    <code>observe({})</code> to rerun.
+</p>
+<p>I&#39;m sure you noticed by now that in addition to the parenthesis that normally define a function, there are some
+    curly brackets. Reactive contexts will be <em>everything</em> within that parenthesis-bracket combo, so become very
+    used to seeing them. </p>
+<h3>Inputs</h3>
+<p>You may be wondering, where did we define the <code>input$class</code> variable? In the UI! Take a closer look at the
+    <code>selectInput</code> function:
+</p>
+<pre><code>    selectInput(inputId = &quot;class&quot;, label = &quot;Passengar Class&quot;, choices = c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;Crew&quot;))
+</code></pre>
+<p>The <code>inputId</code> parameter is set to &quot;class&quot;, and the reactive variable that our reactive context
+    is watching is called <code>input$class</code>. This is not a coincidence. Components of UI that create reactive
+    variables will have a parameter called <code>inputId</code> and can be accessed in the server through the input
+    object.</p>
+<p>All that to say, if you set the <code>inputId</code> of something in the UI to &quot;class&quot;, you can access it
+    with <code>input$class</code> in the server. Of course, what you name the <code>inputId</code> is totally up to you.
+    If you had called the <code>inputId</code> &quot;guests&quot; then you would have accessed its value with
+    <code>input$guests</code>.
+</p>
+<h3>Creating a Graph</h3>
+<p>First, we will need some data. I am going to use the Titanic dataset that comes preloaded with R, and our goal will
+    be to plot who survived based on what their passenger class was. Note, I will be using the <code>tidyverse</code>
+    library to load both <code>dplyr</code> and <code>ggplot2</code> into the app.</p>
+<p>Keep in mind that every function within a reactive context will rerun when a reactive variable changes. We will
+    remove the <code>observe({})</code> function from earlier and instead will be using the <code>renderPlot({})</code>
+    function to create a <code>ggplot2</code> that changes whenever we change the <code>input$class</code> reactive
+    variable. </p>
+<p>Here is all the code:</p>
+<pre><code>library(shiny)
+library(tidyverse)
+
+# a function to create the UI
+ui &lt;- fluidPage(
+    h3(&quot;The Titanic!&quot;),
+    selectInput(inputId = &quot;class&quot;, label = &quot;Passengar Class&quot;, choices = c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;Crew&quot;)),
+    plotOutput(&quot;plot&quot;)
+)
+
+# a function to create the server
+server &lt;- function(input, output) {
+    
+    output$plot &lt;- renderPlot({
+        
+        # basic data cleaning
+        titanic = as.data.frame(Titanic)%&gt;%
+            group_by(Class, Survived)%&gt;%
+            summarise(Count = sum(Freq), .groups = &#39;drop&#39;)%&gt;%
+            ungroup()%&gt;%
+            # filter so that Class variable == input$class reactive value
+            filter(Class == input$class)
+        
+        # ggplot
+        ggplot(titanic)+
+            geom_bar(aes(x = Survived, y = Count), stat = &quot;identity&quot;, fill = &quot;darkcyan&quot;)+
+            theme_minimal()+
+            theme(
+                axis.title = element_text(size = 15),
+                axis.text = element_text(size = 12)
+                  )
+    })
+    
+}
+
+# a function to create the app (using the server and ui we just created)
+shinyApp(ui = ui, server = server)
+</code></pre>
+<p>Let&#39;s take a closer look at the first part of the <code>renderPlot({})</code> function we have added to our
+    server. Here, we are doing a little bit of data manipulation.</p>
+<pre><code>        # basic data cleaning
+        titanic = as.data.frame(Titanic)%&gt;%
+            group_by(Class, Survived)%&gt;%
+            summarise(Count = sum(Freq), .groups = &#39;drop&#39;)%&gt;%
+            ungroup()%&gt;%
+            # filter so that Class variable == input$class reactive value
+            filter(Class == input$class)
+</code></pre>
+<p>The first little bit isn&#39;t important as far as shiny goes but take a look at that last line. We are setting the
+    value of the &quot;Class&quot; variable in the &quot;titanic&quot; data frame equal to the reactive variable
+    <code>input$class</code>. So whenever we change that variable, the &quot;titanic&quot; data frame will be filtered
+    differently, thus changing its value.
+</p>
+<p>Now let&#39;s take a look at the second part of our <code>renderPlot({})</code> function. </p>
+<pre><code>        # ggplot
+        ggplot(titanic)+
+            geom_bar(aes(x = Survived, y = Count), stat = &quot;identity&quot;, fill = &quot;darkcyan&quot;)+
+            theme_minimal()+
+            theme(
+                axis.title = element_text(size = 15),
+                axis.text = element_text(size = 12)
+                  )
+</code></pre>
+<p>This is just a simple ggplot to make a bar graph. But notice how it takes titanic as it&#39;s data? This of course
+    means that whenever titanic changes, we will get a different graph. So basically what graph we get depends on the
+    value of <code>input$class</code>, since the &quot;titanic&quot; data frame depends on that.</p>
+<p>And there you have it, your first reactive plot!</p>
+<h3>Outputs </h3>
+<p>But wait, this raises the question of how that graph is passed from the server to the UI. This is fortunately quite
+    easy. Assign the entire <code>renderPlot({})</code> function to an output and then reference that output on the UI
+    side.</p>
+<p>On the server side:</p>
+<pre><code>output$plot &lt;- renderPlot({
+		# ALL THAT CODE WE HAD
+})
+</code></pre>
+<p> And we reference it on the UI side like so:</p>
+<pre><code>    plotOutput(&quot;plot&quot;)
+</code></pre>
+<h3>To Sum Up</h3>
+<p>Let&#39;s take a final look at our code:</p>
+<pre><code>library(shiny)
+library(tidyverse)
+
+# a function to create the UI
+ui &lt;- fluidPage(
+    h3(&quot;The Titanic!&quot;),
+    selectInput(inputId = &quot;class&quot;, label = &quot;Passengar Class&quot;, choices = c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;Crew&quot;)),
+    plotOutput(&quot;plot&quot;)
+)
+
+# a function to create the server
+server &lt;- function(input, output) {
+    
+    output$plot &lt;- renderPlot({
+        
+        # basic data cleaning
+        titanic = as.data.frame(Titanic)%&gt;%
+            group_by(Class, Survived)%&gt;%
+            summarise(Count = sum(Freq), .groups = &#39;drop&#39;)%&gt;%
+            ungroup()%&gt;%
+            # filter so that Class variable == input$class reactive value
+            filter(Class == input$class)
+        
+        # ggplot
+        ggplot(titanic)+
+            geom_bar(aes(x = Survived, y = Count), stat = &quot;identity&quot;, fill = &quot;darkcyan&quot;)+
+            theme_minimal()+
+            theme(
+                axis.title = element_text(size = 15),
+                axis.text = element_text(size = 12)
+                  )
+    })
+    
+}
+
+# a function to create the app (using the server and ui we just created)
+shinyApp(ui = ui, server = server)
+</code></pre>
+<p>The entire <code>renderPlot({})</code> function watches for changes in the value of <code>input$class</code>, which
+    will change depending on what the user selects in the drop down menu. When that value changes,
+    <code>renderPlot({})</code> reruns creating a new graph and assigns it to <code>output$plot</code>. That is
+    referenced by <code>plotOutput(&quot;plot&quot;)</code> which of course shows the plot.
+</p>
+<p>Here is what you should be seeing at this point!</p>
+<p>&nbsp;</p>
+<p><img src="{{url_for('static', filename='images/tutorials/shiny/reactivity/shiny-2.gif')}}" class="img-center"></p>
+
+{% endblock %}

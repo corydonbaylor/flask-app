@@ -47,3 +47,15 @@ def local2():
 @app.route('/tutorials/port_forwarding')
 def local3():
     return render_template('pages/tutorials/build_website/port_forwarding.html', title='Port Forwarding')
+
+# Shiny Routes
+
+
+@app.route('/tutorials/reactivity')
+def reactivity():
+    return render_template('pages/tutorials/shiny/reactivity.html', title='Reactivity')
+
+
+@app.route('/tutorials/dashboard')
+def dashboard():
+    return render_template('pages/tutorials/shiny/dashboard.html', title='shinydashboard')
