@@ -59,3 +59,7 @@ def reactivity():
 @app.route('/tutorials/dashboard')
 def dashboard():
     return render_template('pages/tutorials/shiny/dashboard.html', title='shinydashboard')
+
+@app.route('/tutorials/modules')
+def modules():
+    return render_template('pages/tutorials/shiny/modules.html', title='Modules')
