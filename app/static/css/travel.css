@@ -139,6 +139,39 @@
 .night {
   background-image: url("../images/travel/hungary/parliament.gif");
 }
+
+/* Mediterranean */
+.barcelona {
+  background-image: url("../images/travel/med/barcelona.png");
+}
+.rome {
+  background-image: url("../images/travel/med/rome.png");
+}
+
+.pompei {
+  background-image: url("../images/travel/med/pompei.png");
+}
+
+.dubrovnik {
+  background-image: url("../images/travel/med/dubrovnik.jpg");
+}
+
+.greece {
+  background-image: url("../images/travel/med/greece.png");
+}
+
+.istanbul {
+  background-image: url("../images/travel/med/istanbul.png");
+}
+
+.moro {
+  background-image: url("../images/travel/med/moro.png");
+}
+
+.portugal {
+  background-image: url("../images/travel/med/portugal.png");
+}
+
 .caption {
   position: absolute;
   left: 0;

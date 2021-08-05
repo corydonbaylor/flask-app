@@ -32,3 +32,8 @@ def hungary():
 @app.route('/travel/costa_rica')
 def costa_rica():
     return render_template('pages/travel/costa_rica.html', title='Costa Rica')
+
+
+@app.route('/travel/mediterranean')
+def med():
+    return render_template('pages/travel/med.html', title='Mediterranean')
