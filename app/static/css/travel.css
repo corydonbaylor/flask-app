@@ -141,6 +141,10 @@
 }
 
 /* Mediterranean */
+.med {
+  background-image: url("../images/travel/med/europe.png");
+}
+
 .barcelona {
   background-image: url("../images/travel/med/barcelona.png");
 }
@@ -153,7 +157,7 @@
 }
 
 .dubrovnik {
-  background-image: url("../images/travel/med/dubrovnik.jpg");
+  background-image: url("../images/travel/med/dubrovnik.png");
 }
 
 .greece {
