@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 >From Single to Three</h3>
+<p>Right now, we have a single file app (kinda, we also have that CSS file), but unless you are doing something very, very simple, you will need to split your app into a few files. Typically, &quot;real&quot; programmers will split up their code into smaller files, where each files does one particular thing. </p>
+<p>Later, when you have bugs (and you will have bugs), it will be easier to find the culprit. In my young and naive days, I used to keep pretty much everything in one massive app.R script. This led me to scroll through thousands of lines of code to find that one line of code that was giving me trouble. </p>
+<p>Life was hard, but somehow I made it through.  </p>
+<p>Right now, we have one file that essentially does everything. We are going to split it into three files: global.R, server.R, and ui.R. Let&#39;s go over what each of these files will be responsible for doing (and what you will put into each one). Create these three files now.</p>
+<p><strong>global.R</strong></p>
+<p>The global.R script is responsible for loading packages, functions, and data into your app. Everything in this script will be ran <em>once</em> and only once, right when the app first loads.</p>
+<p>In our app, we are only going to be loading in the libraries.</p>
+<pre><code>library(shiny)
+library(tidyverse)
+library(shinydashboard)
+</code></pre>
+<p><strong>server.R</strong></p>
+<p>The server script will contain all your reactive code. This means the parts of the app that tells the app how to respond to user inputs. In our app, just copy paste the code we had for our server function. <strong>But also add &quot;session&quot; as an argument to the function.</strong></p>
+<pre><code>server &lt;- function(input, output, session) {
+  
+  output$plot &lt;- renderPlot({
+    
+    # basic data cleaning
+    titanic = as.data.frame(Titanic)%&gt;%
+      group_by(Class, Survived)%&gt;%
+      summarise(Count = sum(Freq), .groups = &#39;drop&#39;)%&gt;%
+      ungroup()%&gt;%
+      # filter so that Class variable == input$class reactive value
+      filter(Class == input$class)
+    
+    # ggplot
+    ggplot(titanic)+
+      geom_bar(aes(x = Survived, y = Count), stat = &quot;identity&quot;, fill = &quot;darkcyan&quot;)+
+      theme_minimal()+
+      theme(
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 12)
+      )  
+  })
+  
+}
+</code></pre>
+<p><strong>ui.R</strong></p>
+<p>The ui.R script contains all the functions that builds the user interface for your applications. Again, this is all the parts of the app your that the user can see. In our app, just copy paste the code we had for the ui.</p>
+<pre><code>ui &lt;- dashboardPage(
+  
+  dashboardHeader(
+    title = &quot;The Titanic&quot;
+  ),
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem(&quot;Passenger Class&quot;, tabName = &quot;class&quot;, icon = icon(&quot;dashboard&quot;)),
+      menuItem(&quot;Gender&quot;, tabName = &quot;gender&quot;, icon = icon(&quot;th&quot;))
+    )
+  ),
+  dashboardBody(
+    includeCSS(&quot;www/custom.css&quot;),
+    tabItems(
+      # class tab
+      tabItem(tabName = &quot;class&quot;,
+              h3(&quot;The Titanic!&quot;),
+              selectInput(inputId = &quot;class&quot;, label = &quot;Passengar Class&quot;, 
+                          choices = c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;Crew&quot;)),
+              plotOutput(&quot;plot&quot;)
+      ), 
+      # gender tab
+      tabItem(tabName = &quot;gender&quot;,
+              fluidRow(
+                column(width = 4, div(class = &quot;boxy&quot;, &quot;1/3&quot; )),
+                column(width = 4, div(class = &quot;boxy&quot;, &quot;1/3&quot;)),
+                column(width = 4, div(class = &quot;boxy&quot;, &quot;1/3&quot;))
+              ),
+              fluidRow(
+                column(width = 6, div(class = &quot;boxy&quot;, &quot;1/2&quot; )),
+                column(width = 6, div(class = &quot;boxy&quot;, &quot;1/2&quot;))
+              ),
+              fluidRow(
+                column(width = 3, div(class = &quot;boxy&quot;, &quot;3/12&quot; )),
+                column(width = 9, div(class = &quot;boxy&quot;, &quot;9/12&quot;))
+              )  
+      )       
+    ) 
+  )
+)
+</code></pre>
+<p>And there you have it! You have divided your app into three parts based on what those three parts actually do. One script for loading everything into global scope, one for handling the logic, and one for creating the UI.</p>
+<h3 >Splitting the Server into Multiple Scripts</h3>
+<p>Sometimes your UI and server can get so big that you don&#39;t want it all in one file. One way you can do that is by, you guessed it, splitting your code into multiple files. Let&#39;s walk through an example. </p>
+<p>Let&#39;s say we wanted to all the functionality for the class tab into its own server file and ui file. First we are going to create a file called <strong>class_server.R</strong> and put it in a new folder called <strong>server</strong>. In that class_server.R file, put in the following code:</p>
+<pre><code>  output$plot &lt;- renderPlot({
+    
+    # basic data cleaning
+    titanic = as.data.frame(Titanic)%&gt;%
+      group_by(Class, Survived)%&gt;%
+      summarise(Count = sum(Freq), .groups = &#39;drop&#39;)%&gt;%
+      ungroup()%&gt;%
+      # filter so that Class variable == input$class reactive value
+      filter(Class == input$class)
+    
+    # ggplot
+    ggplot(titanic)+
+      geom_bar(aes(x = Survived, y = Count), stat = &quot;identity&quot;, fill = &quot;darkcyan&quot;)+
+      theme_minimal()+
+      theme(
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 12)
+      )
+    
+    
+  })
+</code></pre>
+<p>You may note that this is simply the reactive context we use to create the plot. We are just moving this into a different file. Right now, this is excessive (even crazy), but imagine we had ten tabs. In that case, our server.R file would be ten times longer and could be quite hard to navigate. </p>
+<p>Ok lets pretend that I have convinced you that it make sense to further split up your server script. We still need to call the script we just created. We will do this in our <strong>server.R</strong> file like so. Additionally, we are going to remove the code since we have offloaded it into the class_server.R file. Your server file should look like so:</p>
+<pre><code>server &lt;- function(input, output, session) {
+  
+  source(&quot;server/class_server.R&quot;, local = T)
+  
+}
+</code></pre>
+<p><strong>Note you MUST set local = T when loading in functions this way.</strong></p>
+<h3 >Splitting the UI into Multiple Scripts</h3>
+<p>For some reason, putting your UI into multiple parts is a little more wonky. But we can get it done. We are going to offload all the elements for needed to create the UI on the class tab into its own script. First create a <strong>class_ui.R</strong> script in new folder called ui. In it put the following code:</p>
+<pre><code>class_ui = div(
+  h3(&quot;The Titanic!&quot;),
+  selectInput(inputId = &quot;class&quot;, label = &quot;Passengar Class&quot;, 
+              choices = c(&quot;1st&quot;, &quot;2nd&quot;, &quot;3rd&quot;, &quot;Crew&quot;)),
+  plotOutput(&quot;plot&quot;)
+)
+</code></pre>
+<p>This creates an object called &quot;class_ui&quot;, which just is a container div and filled with different rows and columns. Next we are going to load in this script in the global, like so: </p>
+<pre><code>library(shiny)
+library(tidyverse)
+library(shinydashboard)
+
+source(&quot;ui/class_ui.R&quot;)
+</code></pre>
+<p> Finally, we call the &quot;class_ui&quot; object in the UI, like so:</p>
+<pre><code>      tabItem(tabName = &quot;class&quot;,
+        class_ui
+      ), 
+</code></pre>
+<p>We replaced all the UI in the &quot;class&quot; tab with the class_ui object, which we created in the our &quot;ui/class_ui.R&quot; script. </p>
+<h3 >Unleash the Power of Modules</h3>
+<p>So far, all we have done is move code from one place to another. This can be useful when you are simply trying to organize your app, but it doesn&#39;t reduce the total amount of code in your app. </p>
+<p>Imagine if we wanted to add new tabs for age and gender. These new tabs would look exactly like the class tab, but instead of having a bar chart that shows how many people survived based on what class they were in, it would bar charts based on age and gender. </p>
+<p>An easy way to due this would be to copy paste the code and replace the parts that have something to do with &quot;class&quot; with &quot;gender&quot; or &quot;age&quot;. Let&#39;s examine how the server logic would look to create a bar chart for gender.</p>
+<pre><code>output$plot_gender &lt;- renderPlot({
+  
+  # basic data cleaning
+  titanic = as.data.frame(Titanic)%&gt;%
+    group_by(Sex, Survived)%&gt;%
+    summarise(Count = sum(Freq), .groups = &#39;drop&#39;)%&gt;%
+    ungroup()%&gt;%
+    # filter so that Class variable == input$class reactive value
+    filter(Class == input$class)
+  
+  # ggplot
+  ggplot(titanic)+
+    geom_bar(aes(x = Survived, y = Count), stat = &quot;identity&quot;, fill = &quot;darkcyan&quot;)+
+    theme_minimal()+
+    theme(
+      axis.title = element_text(size = 15),
+      axis.text = element_text(size = 12)
+    )
+    
+})
+</code></pre>
+<p>We had to change two things to make the code work. Instead of <code>group_by(Class, Survived)</code>, we wrote <code>group_by(Sex, Survived)</code>. And instead of <code>output$plot</code>, we wrote <code>output$plot_gender</code>. Everything else is duplicated code that doesn&#39;t serve any purpose in being written twice.</p>
+<p>What if the <code>output$</code> could be a variable, and what if we could pass a variable to the <code>group by</code> instead of hard coding it? Spoiler, we can, and we will with modules.   </p>
+<h3 >A Module for Gender Tab</h3>
+<p>Like previously mentioned, we want a new tab that has the same content as our class tab, but now for the gender of the passengers and their survival rate.</p>
+<p>First, we are gonna create a new folder called modules, and in that folder, we are going to put a new script called <strong>barchart.R</strong>. First, we are going to add the UI section of our module, like so:</p>
+<pre><code>barchartUI &lt;- function(id, label, options) {
+  # creating a namespace
+  ns &lt;- NS(id)
+  tagList(
+    h3(&quot;The Titanic!&quot;),
+    selectInput(
+        inputId = ns(&quot;filter&quot;), # applying namespace to filter id
+        label = label, 
+        choices = options
+      ),
+    plotOutput(
+      ns(&quot;plot&quot;) # applying namespace to plot id
+               )
+  )
+}
+</code></pre>
+<p>You will notice that this really similar to what we have in our class_ui.R script, except now its one big function with some arguments. The label and choices for our <code>selectInput</code> function is now variables, meaning we can pass different labels and options for the drop down menu as arguments.</p>
+<p>The module we are building will be for &quot;gender&quot;. So the label will be <code>&quot;Gender&quot;</code> and the options will be <code>c(&quot;Male&quot;, &quot;Female&quot;)</code>.</p>
+<p>Additionally, we have this line of code at the top of our script: <code>ns &lt;- NS(id)</code>. This handles name spacing. When we create an output in shiny, we have to assign it an id to it. This is called its name space. If we aren&#39;t using modules, we handle name spaces manually (i.e. when we say <code>plotOuput(&quot;plot&quot;)</code>, we are explicitly giving this output the id of &quot;plot&quot;). </p>
+<p>However, when we use modules, we are making the name space a variable. I will have a more visual explanation of this later. But for now, let&#39;s move onto building out our server.  <strong>In the same script, add the below:</strong></p>
+<pre><code>barchart &lt;- function(input, output, session, grouper){
+  
+  # creating a namespace for our function
+  ns &lt;- session$ns
+  
+  output$plot &lt;- renderPlot({
+    
+    # basic data cleaning
+    titanic = as.data.frame(Titanic)%&gt;%
+      # grouper is a string, we use get() to access it as a variable
+      group_by(get(grouper), Survived)%&gt;% 
+      summarise(Count = sum(Freq), .groups = &#39;drop&#39;)%&gt;%
+      ungroup()
+    
+    # rename the variables 
+    names(titanic) = c(grouper, &quot;Survived&quot;, &quot;Count&quot;)
+    
+    titanic = titanic%&gt;%
+      # filter so that grouper variable == input$filter reactive value
+      filter(get(grouper) == input$filter)
+    
+    # ggplot
+    ggplot(titanic)+
+      geom_bar(aes(x = Survived, y = Count), stat = &quot;identity&quot;, fill = &quot;darkcyan&quot;)+
+      theme_minimal()+
+      theme(
+        axis.title = element_text(size = 15),
+        axis.text = element_text(size = 12)
+      )        
+  })  
+}
+</code></pre>
+<p>This looks very familiar to the function we had in <strong>server/class.R</strong>. However, You will see that we added <code>ns &lt;- session$ns</code> to the top of our new <code>barchart</code> function. </p>
+<p>The last argument of that function is <code>grouper</code>. The <code>grouper</code> variable will be the name of the column we are grouping the data on (i.e. &quot;Sex&quot; or &quot;Age&quot;). We will pass the name of the column as a string to our function and use the <code>get()</code> variable to access it as a variable.  </p>
+<p>We have now created our module! We just need to apply it to our script. Step 1 is to load in the script into our global. That way we can access the two functions we created. In global.R:</p>
+<pre><code>library(shiny)
+library(tidyverse)
+library(shinydashboard)
+
+source(&quot;ui/boxes.R&quot;)
+source(&quot;ui/class_ui.R&quot;)
+source(&quot;modules/barchart.R&quot;) # added here!
+</code></pre>
+<p>Next we need to add it to the UI by replacing the contents of the &quot;gender&quot; tab with the following:</p>
+<pre><code>      # gender tab
+      tabItem(tabName = &quot;gender&quot;,
+            barchartUI(&quot;gender&quot;, label = &quot;Gender&quot;, options = c(&quot;Male&quot;, &quot;Female&quot;))
+              )       
+    ) 
+</code></pre>
+<p>Notice how we pass the value of &quot;Gender&quot; to the label variable and the options of &quot;Male&quot; and &quot;Female&quot; to the options variable. </p>
+<p>Now lets add the module to the server:</p>
+<pre><code>server &lt;- function(input, output, session) {
+  
+  source(&quot;server/class_server.R&quot;, local = T)
+  callModule(barchart, &quot;gender&quot;, grouper = &quot;Sex&quot;)
+  
+}
+</code></pre>
+<p>Notice how we passed the &quot;Sex&quot; value to the grouper argument? That&#39;s the name of the column we will be grouping by in our data frame. </p>
+<h3 >A Module for Age</h3>
+<p>That was a lot of work, but it&#39;s about to pay off. We are going to use the same module, but this time supply it arguments to create a bar chart based on age. The namespace will be <code>&quot;age&quot;</code>. The label variable will be given a value of <code>&quot;Age&quot;</code> and the options variable will be given a value of <code>c(&quot;Child&quot;, &quot;Adult&quot;)</code> . </p>
+<p>Add a new tab item to the UI like so:</p>
+<pre><code>      # age tab
+      tabItem(tabName = &quot;age&quot;,
+        barchartUI(&quot;age&quot;, label = &quot;Age&quot;, options = c(&quot;Child&quot;, &quot;Adult&quot;))
+      )  
+</code></pre>
+<p>Next we add it to the server script. This time, the grouper variable will be given a value of <code>&quot;Age&quot;</code> since we want to group our data frame on the &quot;Age&quot; variable:</p>
+<pre><code>server &lt;- function(input, output, session) {
+  
+  source(&quot;server/class_server.R&quot;, local = T)
+  callModule(barchart, &quot;gender&quot;, grouper = &quot;Sex&quot;)
+  callModule(barchart, &quot;age&quot;, grouper = &quot;Age&quot;) # we added this!
+  
+}
+</code></pre>
+<p>Finally, remember, we have to add a new tab for Age:</p>
+<pre><code>    sidebarMenu(
+      menuItem(&quot;Passenger Class&quot;, tabName = &quot;class&quot;, icon = icon(&quot;dashboard&quot;)),
+      menuItem(&quot;Gender&quot;, tabName = &quot;gender&quot;, icon = icon(&quot;th&quot;)),
+      menuItem(&quot;Age&quot;, tabName = &quot;age&quot;, icon = icon(&quot;th&quot;)) # we added this!
+    )
+</code></pre>
+<p>And boom! You have a new tab for age.</p>
+<h3 >So How Do Namespaces Work Again?</h3>
+<p>Remember how in the last tutorial how I explained that everything you create in your UI gets turned into HTML tags?</p>
+<p>HTML tags will often times be assigned an ID so that you can apply CSS or javascript to that particular tag. Open up your app in chrome and let&#39;s look at all three of our plots with the inspect tool. </p>
+<p>We did not use modules for the first bar chart we created. We used the line <code>plotOutput(&quot;plot&quot;)</code> to create its namespace, which assigned it an ID of &quot;plot&quot;. For the second and third plots, we used modules to create the namespace, specifically, this line: <code>plotOutput(ns(&quot;plot&quot;))</code>. Notice how we wrap its ID in a <code>ns()</code> function. </p>
+<p>All this function is doing appending whatever namespace we created to the &quot;plot&quot; id to create a unique namespace. So when we pass &quot;age&quot; as the name space, the id for that plot will be &quot;age-plot&quot;. And when we pass &quot;gender&quot;, the id for that plot will be &quot;gender-plot&quot;. </p>
+<p>I put together a little gif of me inspecting the code and checking out the IDs for our three plots.</p>
+<p><img class="img-center" src="{{url_for('static', filename='images/tutorials/shiny/modules/namespace.gif')}}"></p>
+<p>The whole point of this exercise is to write reusable code. Without modules, we cannot handle multiple namespaces with the same block of code. </p>
+
+{% endblock %}
