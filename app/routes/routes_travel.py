@@ -9,6 +9,11 @@ def travel():
     return render_template('pages/travel/travel.html', title='Travel')
 
 
+@app.route('/travel/iceland')
+def iceland():
+    return render_template('pages/travel/iceland.html', title='Iceland')
+
+
 @app.route('/travel/southwest')
 def southwest():
     return render_template('pages/travel/southwest.html', title='Southwest')

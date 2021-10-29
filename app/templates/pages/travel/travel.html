@@ -1,52 +1,79 @@
 {% extends "travel_base.html" %}
 
 {% block content %}
-<a href="{{ url_for('southwest') }}">
-    <div class="southwest travel-title parallax">
-        <div class="caption">
-            <span class="border">SOUTHWEST</span>
-        </div>
+<div class="container">
+    <div class="row">
+    <div class="col-sm-6">
+        <p class="headers">Europe</p>
+
+        <a href="{{ url_for('iceland') }}">
+            <div class="beach travel-title parallax">
+                <div class="caption">
+                    <span class="border-title">ICELAND</span>
+                </div>
+            </div>
+        </a>
+        <br>
+        <a href="{{ url_for('hungary') }}">
+            <div class="budapest travel-title parallax">
+                <div class="caption">
+                    <span class="border-title">HUNGARY</span>
+                </div>
+            </div>
+        </a>
+        <br>
+        <a href="{{ url_for('med') }}">
+            <div class="med travel-title parallax">
+                <div class="caption">
+                    <span class="border-title">MEDITERRANEAN</span>
+                </div>
+            </div>
+        </a>
+        <br>
     </div>
-</a>
-<br>
-<a href="{{ url_for('argentina') }}">
-    <div class="argentina-building travel-title parallax">
-        <div class="caption">
-            <span class="border">ARGENTINA</span>
-        </div>
+
+    <div class="col-sm-6">
+        <p class="headers">Americas</p>
+        <a href="{{ url_for('southwest') }}">
+            <div class="southwest travel-title parallax">
+                <div class="caption">
+                    <span class="border-title">SOUTHWEST</span>
+                </div>
+            </div>
+        </a>
+        <br>
+
+        <a href="{{ url_for('argentina') }}">
+            <div class="argentina-building travel-title parallax">
+                <div class="caption">
+                    <span class="border-title">ARGENTINA</span>
+                </div>
+            </div>
+        </a>
+        <br>
+        <a href="{{ url_for('uruguay') }}">
+            <div class="uruguay travel-title parallax">
+                <div class="caption">
+                    <span class="border-title">URUGUAY</span>
+                </div>
+            </div>
+        </a>
+        <br>
+        <a href="{{ url_for('costa_rica') }}">
+            <div class="costa_rica travel-title parallax">
+                <div class="caption">
+                    <span class="border-title">COSTA RICA</span>
+                </div>
+            </div>
+        </a>
+        <br>
     </div>
-</a>
-<br>
-<a href="{{ url_for('uruguay') }}">
-    <div class="uruguay travel-title parallax">
-        <div class="caption">
-            <span class="border">URUGUAY</span>
-        </div>
-    </div>
-</a>
-<br>
-<a href="{{ url_for('hungary') }}">
-    <div class="budapest travel-title parallax">
-        <div class="caption">
-            <span class="border">HUNGARY</span>
-        </div>
-    </div>
-</a>
-<br>
-<a href="{{ url_for('costa_rica') }}">
-    <div class="costa_rica travel-title parallax">
-        <div class="caption">
-            <span class="border">COSTA RICA</span>
-        </div>
-    </div>
-</a>
-<br>
-<a href="{{ url_for('med') }}">
-    <div class="med travel-title parallax">
-        <div class="caption">
-            <span class="border">MEDITERRANEAN</span>
-        </div>
-    </div>
-</a>
-<br>
+</div>
+</div>
+
+
+
+
+
+
 {% endblock %}

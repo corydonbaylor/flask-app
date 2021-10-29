@@ -23,6 +23,27 @@
   background: #305e7a;
 }
 
+.vid-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headers {
+  text-align: center;
+  color: black;
+  font-size: 14pt;
+}
+
+/* ICELAND */
+.rey {
+  background-image: url("../images/travel/iceland/rey.jpeg");
+}
+
+.beach {
+  background-image: url("../images/travel/iceland/beach.jpeg");
+}
+
 /* SOUTHWEST */
 .southwest {
   background-image: url("../images/travel/southwest/wallstreet.png");
@@ -195,6 +216,15 @@
   letter-spacing: 10px;
 }
 
+.caption span.border-title {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 10px;
+}
+
 .para-tex {
   color: black;
   background-color: white;
@@ -274,7 +304,8 @@
   }
 }
 .travel-title {
-  height: 150px;
+  height: 125px;
+  font-size: 13pt !important;
 }
 
 .travel-title:hover {
