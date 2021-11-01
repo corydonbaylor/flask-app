@@ -23,6 +23,19 @@
   background: #305e7a;
 }
 
+.vid {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.vid h3 {
+  color: black;
+}
+.vid hr {
+  height: 1px;
+  background-color: black;
+}
+
 .vid-center {
   display: block;
   margin-left: auto;
@@ -89,6 +102,10 @@
 
 .argentina {
   background-image: url("../images/travel/argentina/buenos_aires.jpg");
+}
+
+.pink {
+  background-image: url("../images/travel/argentina/pink.jpeg");
 }
 
 .argentina-building {
