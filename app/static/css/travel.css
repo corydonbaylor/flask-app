@@ -57,6 +57,10 @@
   background-image: url("../images/travel/iceland/beach.jpeg");
 }
 
+.foss {
+  background-image: url("../images/travel/iceland/foss.jpeg");
+}
+
 /* SOUTHWEST */
 .southwest {
   background-image: url("../images/travel/southwest/wallstreet.png");
