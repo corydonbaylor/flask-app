@@ -65,6 +65,14 @@
   background-image: url("../images/travel/iceland/vik.jpeg");
 }
 
+.blue-lagoon {
+  background-image: url("../images/travel/iceland/blue_lagoon.gif");
+}
+
+.northern-lights {
+  background-image: url("../images/travel/iceland/northern-lights.jpeg");
+}
+
 /* SOUTHWEST */
 .southwest {
   background-image: url("../images/travel/southwest/wallstreet.png");
