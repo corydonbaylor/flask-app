@@ -23,6 +23,56 @@
   background: #305e7a;
 }
 
+.vid {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.vid h3 {
+  color: black;
+}
+.vid hr {
+  height: 1px;
+  background-color: black;
+}
+
+.vid-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headers {
+  text-align: center;
+  color: black;
+  font-size: 14pt;
+}
+
+/* ICELAND */
+.black-church {
+  background-image: url("../images/travel/iceland/black-church.jpeg");
+}
+
+.beach {
+  background-image: url("../images/travel/iceland/beach.jpeg");
+}
+
+.foss {
+  background-image: url("../images/travel/iceland/foss.jpeg");
+}
+
+.vik {
+  background-image: url("../images/travel/iceland/vik.jpeg");
+}
+
+.blue-lagoon {
+  background-image: url("../images/travel/iceland/blue_lagoon.gif");
+}
+
+.northern-lights {
+  background-image: url("../images/travel/iceland/northern-lights.jpeg");
+}
+
 /* SOUTHWEST */
 .southwest {
   background-image: url("../images/travel/southwest/wallstreet.png");
@@ -68,6 +118,10 @@
 
 .argentina {
   background-image: url("../images/travel/argentina/buenos_aires.jpg");
+}
+
+.pink {
+  background-image: url("../images/travel/argentina/pink.jpeg");
 }
 
 .argentina-building {
@@ -195,6 +249,15 @@
   letter-spacing: 10px;
 }
 
+.caption span.border-title {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 15px;
+  font-style: italic;
+  letter-spacing: 10px;
+}
+
 .para-tex {
   color: black;
   background-color: white;
@@ -274,7 +337,8 @@
   }
 }
 .travel-title {
-  height: 150px;
+  height: 125px;
+  font-size: 13pt !important;
 }
 
 .travel-title:hover {
