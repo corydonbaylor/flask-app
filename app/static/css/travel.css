@@ -48,6 +48,24 @@
   font-size: 14pt;
 }
 
+/* megan */
+
+.fireworks-fourth {
+  background-image: url("../images/travel/megan/fireworks.gif");
+}
+
+.spin {
+  background-image: url("../images/travel/megan/spin.jpeg");
+}
+/* Puerto RICO */
+.puerto-rico {
+  background-image: url("../images/travel/puerto_rico/puerto_street.jpeg");
+}
+
+.san-juan {
+  background-image: url("../images/travel/puerto_rico/puerto_cover.jpeg");
+}
+
 /* ICELAND */
 .black-church {
   background-image: url("../images/travel/iceland/black-church.jpeg");

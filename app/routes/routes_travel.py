@@ -19,6 +19,11 @@ def southwest():
     return render_template('pages/travel/southwest.html', title='Southwest')
 
 
+@app.route('/travel/puerto_rico')
+def puerto_rico():
+    return render_template('pages/travel/puerto_rico.html', title='Puerto Rico')
+
+
 @app.route('/travel/argentina')
 def argentina():
     return render_template('pages/travel/argentina.html', title='Argentina')
@@ -42,3 +47,8 @@ def costa_rica():
 @app.route('/travel/mediterranean')
 def med():
     return render_template('pages/travel/med.html', title='Mediterranean')
+
+
+@app.route('/megan')
+def megan():
+    return render_template('pages/travel/megan.html', title='For Megan')
