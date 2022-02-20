@@ -66,6 +66,14 @@
   background-image: url("../images/travel/puerto_rico/puerto_cover.jpeg");
 }
 
+.street-pr {
+  background-image: url("../images/travel/puerto_rico/cars.JPG");
+}
+
+.fort-pr {
+  background-image: url("../images/travel/puerto_rico/fort.JPG");
+}
+
 /* ICELAND */
 .black-church {
   background-image: url("../images/travel/iceland/black-church.jpeg");
