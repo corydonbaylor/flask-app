@@ -48,6 +48,15 @@
   font-size: 14pt;
 }
 
+/* south */
+.bourbon {
+  background-image: url("../images/travel/thesouth/bourbon.jpeg");
+}
+
+.nola-balcony {
+  background-image: url("../images/travel/thesouth/jackson_square.png");
+}
+
 /* megan */
 
 .fireworks-fourth {

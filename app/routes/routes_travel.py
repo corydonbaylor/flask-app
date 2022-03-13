@@ -19,6 +19,11 @@ def southwest():
     return render_template('pages/travel/southwest.html', title='Southwest')
 
 
+@app.route('/travel/the_south')
+def the_south():
+    return render_template('pages/travel/thesouth.html', title='The South')
+
+
 @app.route('/travel/puerto_rico')
 def puerto_rico():
     return render_template('pages/travel/puerto_rico.html', title='Puerto Rico')
