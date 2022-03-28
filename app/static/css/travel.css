@@ -57,6 +57,10 @@
   background-image: url("../images/travel/thesouth/jackson_square.png");
 }
 
+.bayou {
+  background-image: url("../images/travel/thesouth/bayou.jpeg");
+}
+
 .savannah {
   background-image: url("../images/travel/thesouth/savannah.png");
 }
@@ -401,4 +405,13 @@
   .caption span.border {
     font-size: 18px;
   }
+}
+
+.parallax-title {
+  position: relative;
+  opacity: 0.8;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 0px !important;
 }
