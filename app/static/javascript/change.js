@@ -22,6 +22,9 @@ function change(id) {
         case 'css':
             text = '<p>Most of the styling for my personal website is made using custom CSS. Through this, I have become comfortable with media queries and responsive webdesign.</p>'
             break;
+        case 'svelte':
+            text = '<p>Svelte is my favorite frontend framework to use when building a website. I built <a href="http://svelte-recipes.herokuapp.com/">a receipe website</a> using it.'
+            break;
         case 'boot':
             text = '<p>The underlying CSS bones of this website are built using bootstrap. Check out my <a href="/webdev/bootstrap">tutorial on bootstrap</a> in the webdev section of this site.</p>'
             break;
