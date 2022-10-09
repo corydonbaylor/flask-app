@@ -14,6 +14,11 @@ def iceland():
     return render_template('pages/travel/iceland.html', title='Iceland')
 
 
+@app.route('/travel/northeast')
+def northeast():
+    return render_template('pages/travel/northeast.html', title='Nouthwest')
+
+
 @app.route('/travel/southwest')
 def southwest():
     return render_template('pages/travel/southwest.html', title='Southwest')
@@ -22,6 +27,11 @@ def southwest():
 @app.route('/travel/the_south')
 def the_south():
     return render_template('pages/travel/thesouth.html', title='The South')
+
+
+@app.route('/travel/mexico')
+def mexico():
+    return render_template('pages/travel/mexico.html', title='Mexico')
 
 
 @app.route('/travel/puerto_rico')

@@ -153,6 +153,40 @@
 .dunes {
   background-image: url("../images/travel/southwest/dunes.gif");
 }
+
+/* NORTH EAST */
+.nyc {
+  background-image: url("../images/travel/northeast/nyc.jpeg");
+}
+.boston {
+  background-image: url("../images/travel/northeast/boston.jpeg");
+}
+
+/* MEXICO */
+
+.wedding {
+  background-image: url("../images/travel/mexico/wedding.jpeg");
+}
+
+.sanmig {
+  background-image: url("../images/travel/mexico/sanmig.jpeg");
+
+}
+
+.mx_dome {
+  background-image: url("../images/travel/mexico/dome.jpeg");
+
+}
+.cancun {
+  background-image: url("../images/travel/mexico/cancun.jpeg");
+
+}
+
+.tulum {
+  background-image: url("../images/travel/mexico/tulum.jpeg");
+
+}
+
 /* ARGENTINA */
 
 .fireworks {
