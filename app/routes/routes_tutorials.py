@@ -60,6 +60,14 @@ def reactivity():
 def dashboard():
     return render_template('pages/tutorials/shiny/dashboard.html', title='shinydashboard')
 
+
 @app.route('/tutorials/modules')
 def modules():
     return render_template('pages/tutorials/shiny/modules.html', title='Modules')
+
+# Python Routes
+
+
+@app.route('/tutorials/pandas')
+def pandas():
+    return render_template('pages/tutorials/python/pandas.html', title='Pandas')
