@@ -6,7 +6,7 @@ from app import app
 
 @app.route('/tutorials')
 def tutorials():
-    return render_template('pages/tutorials/tutorials.html', title='Web Dev', pad='p-0')
+    return render_template('pages/tutorials/tutorials.html', title='Tutorials', pad='p-0')
 
 
 @app.route('/tutorials/linux_git')
@@ -68,6 +68,21 @@ def modules():
 # Python Routes
 
 
+@app.route('/tutorials/data_types')
+def data_types():
+    return render_template('pages/tutorials/python/data_types.html', title='Data Types')
+
+
 @app.route('/tutorials/pandas')
 def pandas():
     return render_template('pages/tutorials/python/pandas.html', title='Pandas')
+
+
+@app.route('/tutorials/filtering')
+def filtering():
+    return render_template('pages/tutorials/python/filtering.html', title='Filtering')
+
+
+@app.route('/tutorials/combining_data')
+def combining_data():
+    return render_template('pages/tutorials/python/combining_data.html', title='Combining Data')
