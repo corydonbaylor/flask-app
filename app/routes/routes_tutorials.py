@@ -73,6 +73,11 @@ def data_types():
     return render_template('pages/tutorials/python/data_types.html', title='Data Types')
 
 
+@app.route('/tutorials/saving')
+def saving():
+    return render_template('pages/tutorials/python/save.html', title='Loading and Saving Data')
+
+
 @app.route('/tutorials/pandas')
 def pandas():
     return render_template('pages/tutorials/python/pandas.html', title='Pandas')
