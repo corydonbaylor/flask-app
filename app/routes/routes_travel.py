@@ -16,7 +16,12 @@ def iceland():
 
 @app.route('/travel/northeast')
 def northeast():
-    return render_template('pages/travel/northeast.html', title='Nouthwest')
+    return render_template('pages/travel/northeast.html', title='Noutheast')
+
+
+@app.route('/travel/quebec')
+def quebec():
+    return render_template('pages/travel/quebec.html', title='Quebec')
 
 
 @app.route('/travel/southwest')

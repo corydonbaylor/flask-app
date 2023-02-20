@@ -48,6 +48,29 @@
   font-size: 14pt;
 }
 
+/* QUEBEC */
+
+.quebec{
+  background-image: url("../images/travel/quebec/");
+}
+
+.montreal {
+  background-image: url("../images/travel/quebec/montreal.jpeg");
+}
+
+.quebec_city {
+  background-image: url("../images/travel/quebec/quebec_city.jpeg");
+}
+
+.skating {
+  background-image: url("../images/travel/quebec/quebec2.jpeg");
+}
+
+.painting {
+  background-image: url("../images/travel/quebec/quebec.jpeg");
+}
+
+
 /* south */
 .bourbon {
   background-image: url("../images/travel/thesouth/bourbon.jpeg");
@@ -73,6 +96,15 @@
 
 .spin {
   background-image: url("../images/travel/megan/spin.jpeg");
+}
+
+.cups {
+  background-image: url("../images/travel/megan/cups.jpeg");
+}
+
+
+.cooper {
+  background-image: url("../images/travel/megan/cooper.jpeg");
 }
 /* Puerto RICO */
 .puerto-rico {
@@ -135,6 +167,10 @@
 
 .bryce {
   background-image: url("../images/travel/southwest/bryce.jpeg");
+}
+
+.reef {
+  background-image: url("../images/travel/southwest/reef.jpeg");
 }
 
 .arch {
