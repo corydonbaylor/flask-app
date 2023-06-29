@@ -6,7 +6,7 @@ from app import app
 
 @app.route('/tutorials')
 def tutorials():
-    return render_template('pages/tutorials/tutorials.html', title='Web Dev', pad='p-0')
+    return render_template('pages/tutorials/tutorials.html', title='Tutorials', pad='p-0')
 
 
 @app.route('/tutorials/linux_git')
@@ -60,6 +60,34 @@ def reactivity():
 def dashboard():
     return render_template('pages/tutorials/shiny/dashboard.html', title='shinydashboard')
 
+
 @app.route('/tutorials/modules')
 def modules():
     return render_template('pages/tutorials/shiny/modules.html', title='Modules')
+
+# Python Routes
+
+
+@app.route('/tutorials/data_types')
+def data_types():
+    return render_template('pages/tutorials/python/data_types.html', title='Data Types')
+
+
+@app.route('/tutorials/saving')
+def saving():
+    return render_template('pages/tutorials/python/save.html', title='Loading and Saving Data')
+
+
+@app.route('/tutorials/pandas')
+def pandas():
+    return render_template('pages/tutorials/python/pandas.html', title='Pandas')
+
+
+@app.route('/tutorials/filtering')
+def filtering():
+    return render_template('pages/tutorials/python/filtering.html', title='Filtering')
+
+
+@app.route('/tutorials/combining_data')
+def combining_data():
+    return render_template('pages/tutorials/python/combining_data.html', title='Combining Data')
